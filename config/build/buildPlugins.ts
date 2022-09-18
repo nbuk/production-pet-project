@@ -12,7 +12,7 @@ export function buildPlugins({
     }),
     new webpack.ProgressPlugin(),
     new MiniCssExtractPlugin({
-      filename: "css/calculator.css",
+      filename: "css/styles.css",
     }),
   ];
 }
