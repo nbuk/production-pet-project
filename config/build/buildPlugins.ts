@@ -5,6 +5,7 @@ import MiniCssExtractPlugin from "mini-css-extract-plugin";
 
 export function buildPlugins({
   paths,
+  isDev,
 }: BuildOptions): webpack.WebpackPluginInstance[] {
   return [
     new HtmlWebpackPlugin({
@@ -13,6 +14,9 @@ export function buildPlugins({
     new webpack.ProgressPlugin(),
     new MiniCssExtractPlugin({
       filename: "css/styles.css",
+    }),
+    new webpack.DefinePlugin({
+      __IS_DEV__: isDev,
     }),
   ];
 }
