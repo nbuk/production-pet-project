@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useTransition } from "react";
 import { classNames } from "shared/lib/classNames";
 import { AppLink, AppLinkTheme } from "shared/ui/AppLink/AppLink";
 
@@ -9,18 +9,20 @@ interface NavbarProps {
 }
 
 export const Navbar: FC<NavbarProps> = ({ className }) => {
+  const { t } = useTransition();
+
   return (
-    <div className={classNames(styles.NavBar, {}, [className])}>
+    <div className={classNames(styles.NavBar, {}, [className ?? ""])}>
       <div className={styles.links}>
         <AppLink
           theme={AppLinkTheme.SECONDARY}
           to={"/"}
           className={styles.mainLink}
         >
-          Главная
+          {t("Главная")}
         </AppLink>
         <AppLink theme={AppLinkTheme.SECONDARY} to={"/about"}>
-          About
+          {t("О нас")}
         </AppLink>
       </div>
     </div>

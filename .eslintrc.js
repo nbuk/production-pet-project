@@ -1,0 +1,37 @@
+module.exports = {
+  env: {
+    browser: true,
+    es2021: true
+  },
+  extends: [
+    "plugin:react/recommended",
+    "standard-with-typescript",
+    "plugin:react/jsx-runtime",
+    "plugin:i18next/recommended"
+  ],
+  overrides: [],
+  parserOptions: {
+    ecmaVersion: "latest",
+    sourceType: "module",
+    project: "tsconfig.json"
+  },
+  plugins: [
+    "react",
+    "i18next"
+  ],
+
+  rules: {
+    indent: [2, 2],
+    quotes: [2, "double", { avoidEscape: true, allowTemplateLiterals: true }],
+    "jsx-indent": "off",
+    "@typescript-eslint/quotes": [2, "double"],
+    "@typescript-eslint/semi": [2, "always"],
+    "@typescript-eslint/strict-boolean-expressions": "off",
+    "@typescript-eslint/no-floating-promises": "off",
+    semi: [2, "always"],
+    "@typescript-eslint/naming-convention": "off"
+  },
+  globals: {
+    __IS_DEV__: true
+  }
+};
