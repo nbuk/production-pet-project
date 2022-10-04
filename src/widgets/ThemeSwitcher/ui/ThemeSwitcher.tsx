@@ -8,7 +8,7 @@ import LightIcon from "shared/assets/icons/theme-light.svg";
 import { Button, ThemeButton } from "shared/ui/Button/Button";
 
 interface ThemeSwitcherProps {
-  className?: string;
+  className?: string
 }
 
 export const ThemeSwitcher: FC<ThemeSwitcherProps> = ({ className }) => {
@@ -17,14 +17,13 @@ export const ThemeSwitcher: FC<ThemeSwitcherProps> = ({ className }) => {
   return (
     <Button
       theme={ThemeButton.CLEAR}
-      className={classNames(styles.ThemeSwitcher, {}, [className])}
+      className={classNames(styles.ThemeSwitcher, {}, [className ?? ""])}
       onClick={toggleTheme}
     >
-      {theme === Theme.DARK ? (
-        <DarkIcon height={20} width={20} fill={"#535353"} />
-      ) : (
-        <LightIcon height={20} width={20} fill={"#ffffff"} />
-      )}
+      {theme === Theme.DARK
+        ? <DarkIcon height={20} width={20} fill={"#535353"} />
+        : <LightIcon height={20} width={20} fill={"#ffffff"} />
+      }
     </Button>
   );
 };

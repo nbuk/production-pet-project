@@ -1,9 +1,9 @@
-import React, { Suspense } from "react";
+import { FC, Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
 
 import { routeConfig } from "shared/config/routeConfig/routeConfig";
 
-export const AppRouter = () => {
+export const AppRouter: FC = () => {
   return (
     <Routes>
       {Object.values(routeConfig).map(({ path, element }) => (

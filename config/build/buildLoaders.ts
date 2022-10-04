@@ -3,20 +3,20 @@ import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import { BuildOptions } from "./types/config";
 import ReactRefreshTypescript from "react-refresh-typescript";
 
-export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
+export function buildLoaders ({ isDev }: BuildOptions): webpack.RuleSetRule[] {
   const svgLoader = {
     test: /\.svg$/i,
     issuer: /\.[jt]sx?$/,
-    use: ["@svgr/webpack"],
+    use: ["@svgr/webpack"]
   };
 
   const fileLoader = {
     test: /\.(png|jpe?g|gif|woff2|woff)$/i,
     use: [
       {
-        loader: "file-loader",
-      },
-    ],
+        loader: "file-loader"
+      }
+    ]
   };
 
   const cssLoaders = {
@@ -30,12 +30,12 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
             auto: (resPath: string) => Boolean(resPath.includes(".module.")),
             localIdentName: isDev
               ? "[path][name]__[local]--[hash:base64:5]"
-              : "[hash:base64:8]",
-          },
-        },
+              : "[hash:base64:8]"
+          }
+        }
       },
-      "sass-loader",
-    ],
+      "sass-loader"
+    ]
   };
 
   const typescriptLoader = {
@@ -46,13 +46,13 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
         loader: "ts-loader",
         options: {
           getCustomTransformers: () => ({
-            before: [isDev && ReactRefreshTypescript()].filter(Boolean),
+            before: [isDev && ReactRefreshTypescript()].filter(Boolean)
           }),
-          transpileOnly: isDev,
-        },
-      },
+          transpileOnly: isDev
+        }
+      }
     ],
-    exclude: /node_modules/,
+    exclude: /node_modules/
   };
 
   return [fileLoader, svgLoader, typescriptLoader, cssLoaders];

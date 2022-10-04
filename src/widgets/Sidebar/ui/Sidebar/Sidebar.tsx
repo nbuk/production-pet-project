@@ -7,22 +7,20 @@ import styles from "./Sidebar.module.scss";
 import { LangSwitcher } from "widgets/LangSwitcher";
 
 interface SidebarProps {
-  className?: string;
+  className?: string
 }
 
 export const Sidebar: FC<PropsWithChildren<SidebarProps>> = (props) => {
   const { className } = props;
   const [collapsed, setCollapsed] = useState(false);
 
-  const onToggle = () => {
+  const onToggle = (): void => {
     setCollapsed((prev) => !prev);
   };
 
   return (
     <div
-      className={classNames(styles.Sidebar, { [styles.collapsed]: collapsed }, [
-        className,
-      ])}
+      className={classNames(styles.Sidebar, { [styles.collapsed]: collapsed }, [className ?? ""])}
     >
       <button onClick={onToggle}>toggle</button>
       <div className={styles.switchers}>
