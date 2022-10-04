@@ -1,5 +1,5 @@
 import { ButtonHTMLAttributes, FC, PropsWithChildren } from "react";
-import { classNames } from "shared/lib/classNames";
+import { classNames } from "shared/lib/classNames/classNames";
 import styles from "./Button.module.scss";
 
 export const enum ThemeButton {
