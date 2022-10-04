@@ -7,7 +7,7 @@ import LightIcon from "shared/assets/icons/theme-light.svg";
 import { Button, ThemeButton } from "shared/ui/Button/Button";
 
 interface ThemeSwitcherProps {
-  className?: string
+  className?: string;
 }
 
 export const ThemeSwitcher: FC<ThemeSwitcherProps> = ({ className }) => {

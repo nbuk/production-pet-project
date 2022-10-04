@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import { Button, ThemeButton } from "shared/ui/Button/Button";
 
 interface LangSwitcherProps {
-  className?: string
+  className?: string;
 }
 
 export const LangSwitcher: FC<PropsWithChildren<LangSwitcherProps>> = (

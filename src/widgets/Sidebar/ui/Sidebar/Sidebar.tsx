@@ -8,7 +8,7 @@ import { LangSwitcher } from "widgets/LangSwitcher";
 import { useTranslation } from "react-i18next";
 
 interface SidebarProps {
-  className?: string
+  className?: string;
 }
 
 export const Sidebar: FC<PropsWithChildren<SidebarProps>> = (props) => {

@@ -29,7 +29,8 @@ module.exports = {
     "@typescript-eslint/strict-boolean-expressions": "off",
     "@typescript-eslint/no-floating-promises": "off",
     semi: [2, "always"],
-    "@typescript-eslint/naming-convention": "off"
+    "@typescript-eslint/naming-convention": "off",
+    "@typescript-eslint/member-delimiter-style": [2, { multiline: { delimiter: "semi", requireLast: true }, singleline: { delimiter: "semi", requireLast: true } }]
   },
   globals: {
     __IS_DEV__: true
