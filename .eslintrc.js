@@ -13,8 +13,9 @@ module.exports = {
   parserOptions: {
     ecmaVersion: "latest",
     sourceType: "module",
-    project: "tsconfig.json"
+    project: "./tsconfig.json"
   },
+  ignorePatterns: ["src/**/*.test.tsx?"],
   plugins: [
     "react",
     "i18next"
@@ -30,7 +31,8 @@ module.exports = {
     "@typescript-eslint/no-floating-promises": "off",
     semi: [2, "always"],
     "@typescript-eslint/naming-convention": "off",
-    "@typescript-eslint/member-delimiter-style": [2, { multiline: { delimiter: "semi", requireLast: true }, singleline: { delimiter: "semi", requireLast: true } }]
+    "@typescript-eslint/member-delimiter-style": [2, { multiline: { delimiter: "semi", requireLast: true }, singleline: { delimiter: "semi", requireLast: true } }],
+    "@typescript-eslint/space-before-function-paren": [2, "never"]
   },
   globals: {
     __IS_DEV__: true
