@@ -3,7 +3,7 @@ import { FC, ReactNode, useMemo, useState } from "react";
 import {
   LOCAL_STORAGE_THEME_KEY,
   Theme,
-  ThemeContext
+  ThemeContext,
 } from "../lib/ThemeContext";
 
 const defaultTheme =
@@ -19,9 +19,9 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
   const defaultProps = useMemo(
     () => ({
       theme,
-      setTheme
+      setTheme,
     }),
-    [theme]
+    [theme],
   );
 
   return (

@@ -5,24 +5,24 @@ import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import ReactRefreshWebpackPlugin from "@pmmmwh/react-refresh-webpack-plugin";
 import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer";
 
-export function buildPlugins ({
+export function buildPlugins({
   paths,
-  isDev
+  isDev,
 }: BuildOptions): webpack.WebpackPluginInstance[] {
   const plugins: webpack.WebpackPluginInstance[] = [
     new HtmlWebpackPlugin({
-      template: paths.html
+      template: paths.html,
     }),
     new webpack.ProgressPlugin(),
     new MiniCssExtractPlugin({
-      filename: "css/styles.css"
+      filename: "css/styles.css",
     }),
     new webpack.DefinePlugin({
-      __IS_DEV__: isDev
+      __IS_DEV__: isDev,
     }),
     new BundleAnalyzerPlugin({
-      openAnalyzer: false
-    })
+      openAnalyzer: false,
+    }),
   ];
 
   if (isDev) {

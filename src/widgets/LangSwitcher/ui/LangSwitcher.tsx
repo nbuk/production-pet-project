@@ -8,7 +8,7 @@ interface LangSwitcherProps {
 }
 
 export const LangSwitcher: FC<PropsWithChildren<LangSwitcherProps>> = (
-  props
+  props,
 ) => {
   const { className } = props;
   const { t, i18n } = useTranslation();
