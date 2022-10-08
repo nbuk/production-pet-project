@@ -52,6 +52,8 @@ module.exports = {
     "comma-dangle": ["error", "always-multiline"],
     "@typescript-eslint/comma-dangle": ["error", "always-multiline"],
     "@typescript-eslint/consistent-type-assertions": "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "react/display-name": "off",
   },
   globals: {
     __IS_DEV__: true,
