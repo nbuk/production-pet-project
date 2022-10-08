@@ -22,7 +22,9 @@
   },
   "types": ["jest", "@testing-library/jest-dom"],
   "include": [
+    "./webpack.config.ts",
     "src",
+    "./config",
     "./config/jest",
   ]
 }
