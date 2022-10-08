@@ -51,6 +51,7 @@ module.exports = {
     "@typescript-eslint/space-before-function-paren": [2, "never"],
     "comma-dangle": ["error", "always-multiline"],
     "@typescript-eslint/comma-dangle": ["error", "always-multiline"],
+    "@typescript-eslint/consistent-type-assertions": "off",
   },
   globals: {
     __IS_DEV__: true,
