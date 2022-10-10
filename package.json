@@ -15,9 +15,11 @@
     "test:ui": "yarn loki test",
     "test:ui:ok": "yarn loki approve",
     "test:ui:ci": "loki --requireReference --reactUri file:./storybook-static",
+    "test:ui:json": "node scripts/generate-visual-json-report.js",
+    "test:ui:html": "reg-cli --from .loki/report.json --report .loki/report.html",
+    "test:ui:report": "yarn test:ui:json && yarn test:ui:html",
     "storybook": "start-storybook -p 6006 -c ./config/storybook",
     "storybook:build": "build-storybook -c ./config/storybook"
-
   },
   "devDependencies": {
     "@babel/core": "^7.19.3",
@@ -66,6 +68,7 @@
     "mini-css-extract-plugin": "^2.6.1",
     "react-refresh": "^0.14.0",
     "react-refresh-typescript": "^2.0.7",
+    "reg-cli": "^0.17.7",
     "sass": "^1.54.9",
     "sass-loader": "^13.0.2",
     "style-loader": "^3.3.1",
