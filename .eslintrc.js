@@ -9,6 +9,7 @@ module.exports = {
     "plugin:react/jsx-runtime",
     "plugin:i18next/recommended",
     "plugin:storybook/recommended",
+    "plugin:react-hooks/recommended",
   ],
   overrides: [],
   parserOptions: {

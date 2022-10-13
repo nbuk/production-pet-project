@@ -5,8 +5,6 @@ import { classNames } from "shared/lib/classNames/classNames";
 import { Navbar } from "widgets/Navbar";
 import { Sidebar } from "widgets/Sidebar";
 
-import "./styles/index.scss";
-
 export const App: FC = () => {
   const { theme } = useTheme();
 
