@@ -2,7 +2,6 @@ import React, { FC, PropsWithChildren, useCallback, useEffect, useRef, useState 
 import { classNames } from "shared/lib/classNames";
 import { Portal } from "shared/ui/Portal/Portal";
 import styles from "./Modal.module.scss";
-import { useTheme } from "app/providers/ThemeProvider";
 
 interface ModalProps {
   className?: string;
@@ -17,7 +16,6 @@ export const Modal: FC<PropsWithChildren<ModalProps>> = (props) => {
 
   const [isClosing, setIsClosing] = useState(false);
   const timerRef = useRef<ReturnType<typeof setTimeout>>();
-  const { theme } = useTheme();
 
   const handleClose = useCallback(() => {
     if (onClose) {
@@ -53,7 +51,6 @@ export const Modal: FC<PropsWithChildren<ModalProps>> = (props) => {
   const mods: Record<string, boolean> = {
     [styles.opened]: isOpen,
     [styles.isClosing]: isClosing,
-    [styles[theme]]: true,
   };
 
   return (
