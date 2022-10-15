@@ -2,27 +2,46 @@ import React, { FC, PropsWithChildren, useCallback, useEffect, useRef, useState 
 import { classNames } from "shared/lib/classNames";
 import { Portal } from "shared/ui/Portal/Portal";
 import styles from "./Modal.module.scss";
+import { useTheme } from "app/providers/ThemeProvider";
 
 interface ModalProps {
   className?: string;
   isOpen?: boolean;
+  lazy?: boolean;
   onClose?: () => void;
 }
 
 const ANIMATION_DELAY = 300;
 
 export const Modal: FC<PropsWithChildren<ModalProps>> = (props) => {
-  const { className, isOpen, onClose, children } = props;
+  const { className, isOpen, lazy, onClose, children } = props;
 
+  const { theme } = useTheme();
+  const [isOpening, setIsOpening] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
   const timerRef = useRef<ReturnType<typeof setTimeout>>();
+
+  useEffect(() => {
+    if (isOpen) {
+      setIsMounted(true);
+    }
+  }, [isOpen]);
+
+  useEffect(() => {
+    if (isMounted) {
+      setIsOpening(true);
+    }
+  }, [isMounted]);
 
   const handleClose = useCallback(() => {
     if (onClose) {
       setIsClosing(true);
       timerRef.current = setTimeout(() => {
         onClose();
+        setIsOpening(false);
         setIsClosing(false);
+        setIsMounted(false);
       }, ANIMATION_DELAY);
     }
   }, [onClose]);
@@ -49,13 +68,17 @@ export const Modal: FC<PropsWithChildren<ModalProps>> = (props) => {
   }, [isOpen, handleKeyDown]);
 
   const mods: Record<string, boolean> = {
-    [styles.opened]: isOpen,
+    [styles.opened]: isOpening,
     [styles.isClosing]: isClosing,
   };
 
+  if (lazy && !isMounted) {
+    return null;
+  }
+
   return (
     <Portal>
-      <div className={classNames(styles.Modal, mods, [className])}>
+      <div className={classNames(styles.Modal, mods, [className, theme])}>
         <div className={styles.overlay} onClick={handleClose}>
           <div className={styles.content} onClick={handleContentClick}>
             {children}

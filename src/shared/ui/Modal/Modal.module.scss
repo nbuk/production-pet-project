@@ -23,8 +23,9 @@
   padding: 20px;
   border-radius: 12px;
   background: var(--bg-color);
-  transition: transform 0.3s;
+  transition: all 0.3s;
   transform: scale(0.5);
+  opacity: 0;
   max-width: 60%;
 }
 
@@ -35,11 +36,13 @@
 
   .content {
     transform: scale(1);
+    opacity: 1;
   }
 }
 
 .isClosing {
   .content {
-    transform: scale(0.1);
+    transform: scale(0.4);
+    opacity: 0;
   }
 }
