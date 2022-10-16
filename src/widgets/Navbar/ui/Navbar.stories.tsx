@@ -26,3 +26,9 @@ Dark.args = {};
 Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({
   user: { authData: {} },
 })];
+
+export const NotAuthorized = Template.bind({});
+NotAuthorized.args = {};
+NotAuthorized.decorators = [StoreDecorator({
+  user: { authData: undefined },
+})];
