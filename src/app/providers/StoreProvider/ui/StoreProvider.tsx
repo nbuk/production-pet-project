@@ -8,7 +8,7 @@ import { DeepPartial, ReducersMapObject } from "@reduxjs/toolkit";
 interface StoreProviderProps {
   children: ReactNode;
   initialState?: DeepPartial<StateSchema>;
-  asyncReducers: DeepPartial<ReducersMapObject<StateSchema>>;
+  asyncReducers?: DeepPartial<ReducersMapObject<StateSchema>>;
 }
 
 export const StoreProvider: FC<StoreProviderProps> = (props) => {
