@@ -1,7 +1,8 @@
-import { FC, PropsWithChildren } from "react";
+import { FC, PropsWithChildren, Suspense } from "react";
 import { classNames } from "shared/lib/classNames";
 import { Modal } from "shared/ui/Modal/Modal";
-import { LoginForm } from "../LoginForm/LoginForm";
+import { LoginFormAsync } from "../LoginForm/LoginForm.async";
+import { Loader } from "shared/ui/Loader/Loader";
 
 interface LoginModalProps {
   className?: string;
@@ -19,7 +20,9 @@ export const LoginModal: FC<PropsWithChildren<LoginModalProps>> = (props) => {
       onClose={onClose}
       lazy={lazy}
     >
-      <LoginForm />
+      <Suspense fallback={<Loader />}>
+        <LoginFormAsync />
+      </Suspense>
     </Modal>
   );
 };
