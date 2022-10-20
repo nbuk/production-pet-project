@@ -56,6 +56,7 @@ module.exports = {
     "@typescript-eslint/explicit-function-return-type": "off",
     "react/display-name": "off",
     "@typescript-eslint/no-dynamic-delete": "off",
+    "@typescript-eslint/return-await": "off",
   },
   globals: {
     __IS_DEV__: true,
