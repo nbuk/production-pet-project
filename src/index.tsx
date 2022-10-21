@@ -12,13 +12,13 @@ const container = document.getElementById("root");
 const root = createRoot(container);
 
 root.render(
-  <StoreProvider>
+  <BrowserRouter>
     <ErrorBoundary>
-      <BrowserRouter>
+      <StoreProvider>
         <ThemeProvider>
           <App />
         </ThemeProvider>
-      </BrowserRouter>
+      </StoreProvider>
     </ErrorBoundary>
-  </StoreProvider>,
+  </BrowserRouter>,
 );
