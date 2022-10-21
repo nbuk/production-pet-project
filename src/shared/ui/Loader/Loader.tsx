@@ -1,4 +1,4 @@
-import { FC, PropsWithChildren } from "react";
+import { memo } from "react";
 import { classNames } from "shared/lib/classNames";
 import "./Loader.scss";
 
@@ -6,7 +6,7 @@ interface LoaderProps {
   className?: string;
 }
 
-export const Loader: FC<PropsWithChildren<LoaderProps>> = (props) => {
+export const Loader = memo((props: LoaderProps) => {
   const { className } = props;
   return (
     <div className={classNames("lds-ring", {}, [className])}>
@@ -16,4 +16,4 @@ export const Loader: FC<PropsWithChildren<LoaderProps>> = (props) => {
       <div />
     </div>
   );
-};
+});
