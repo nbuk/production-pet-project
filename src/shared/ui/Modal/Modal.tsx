@@ -1,5 +1,5 @@
 import React, { FC, PropsWithChildren, useCallback, useEffect, useRef, useState } from "react";
-import { classNames } from "shared/lib/classNames";
+import { classNames, Mods } from "shared/lib/classNames";
 import { Portal } from "shared/ui/Portal/Portal";
 import styles from "./Modal.module.scss";
 import { useTheme } from "app/providers/ThemeProvider";
@@ -20,7 +20,7 @@ export const Modal: FC<PropsWithChildren<ModalProps>> = (props) => {
   const [isOpening, setIsOpening] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
-  const timerRef = useRef<ReturnType<typeof setTimeout>>();
+  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     if (isOpen) {
@@ -62,12 +62,12 @@ export const Modal: FC<PropsWithChildren<ModalProps>> = (props) => {
     }
 
     return () => {
-      clearTimeout(timerRef.current);
+      if (timerRef.current) clearTimeout(timerRef.current);
       window.removeEventListener("keydown", handleKeyDown);
     };
   }, [isOpen, handleKeyDown]);
 
-  const mods: Record<string, boolean> = {
+  const mods: Mods = {
     [styles.opened]: isOpening,
     [styles.isClosing]: isClosing,
   };

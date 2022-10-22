@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
-    "strictNullChecks": false,
+    "strict": true,
+    "strictNullChecks": true,
     "outDir": "./dist/",
     "noImplicitAny": true,
     "module": "ESNext",
@@ -25,6 +26,7 @@
     "./webpack.config.ts",
     "src",
     "./config",
-    "./config/jest",
-  ]
+    "./config/jest"
+  ],
+  "exclude": ["node_modules"]
 }

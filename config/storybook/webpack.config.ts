@@ -15,9 +15,10 @@ export default ({
     src: path.resolve(__dirname, "..", "..", "src"),
   };
 
-  config.resolve.modules.push(paths.src);
-  config.resolve.extensions.push(".ts", ".tsx");
+  config.resolve?.modules?.push(paths.src);
+  config.resolve?.extensions?.push(".ts", ".tsx");
 
+  // @ts-expect-error
   config.module.rules = config.module.rules.map((rule: RuleSetRule) => {
     if (/.svg/.test(rule.test as string)) {
       return {
@@ -29,8 +30,8 @@ export default ({
 
     return rule;
   });
-  config.module.rules.push(buildCssLoader(true));
-  config.plugins.push(new DefinePlugin({
+  config.module?.rules.push(buildCssLoader(true));
+  config.plugins?.push(new DefinePlugin({
     __IS_DEV__: true,
     __API__: JSON.stringify(""),
   }));

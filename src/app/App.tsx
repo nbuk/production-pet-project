@@ -1,5 +1,5 @@
 import { FC, Suspense, useEffect } from "react";
-import { AppRouter } from "app/providers/router";
+import { AppRouter } from "app/providers/Router";
 import { classNames } from "shared/lib/classNames/classNames";
 import { Navbar } from "widgets/Navbar";
 import { Sidebar } from "widgets/Sidebar";
