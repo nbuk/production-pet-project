@@ -3,5 +3,14 @@
   "Профиль": "Profile",
   "Редактировать": "Edit",
   "Ваша имя": "Firstname",
-  "Ваша фамилия": "Lastname"
+  "Ваша фамилия": "Lastname",
+  "Произошла ошибка при загрузке данных": "An unexpected error occurred",
+  "Попробуйте обновить страницу": "Try refreshing the page",
+  "Отменить": "Cancel",
+  "Сохранить": "Save",
+  "Город": "City",
+  "Возраст": "Age",
+  "Ссылка на аватар": "Avatar link",
+  "Имя пользователя": "Username",
+  "Валюта": "Currency"
 }

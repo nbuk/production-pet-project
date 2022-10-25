@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from "@storybook/react";
+import { ComponentMeta, ComponentStory } from "@storybook/react";
 
 import { Button, ButtonSize, ButtonTheme } from "./Button";
 
@@ -42,6 +42,12 @@ export const Outline = Template.bind({});
 Outline.args = {
   children: "Text",
   theme: ButtonTheme.OUTLINE,
+};
+
+export const OutlineRed = Template.bind({});
+OutlineRed.args = {
+  children: "Text",
+  theme: ButtonTheme.OUTLINE_RED,
 };
 
 export const OutlineSizeL = Template.bind({});

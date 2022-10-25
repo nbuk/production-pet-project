@@ -2,6 +2,7 @@ import webpack, { DefinePlugin, RuleSetRule } from "webpack";
 import { BuildPaths } from "../build/types/config";
 import path from "path";
 import { buildCssLoader } from "../build/loaders/buildCssLoader";
+import { buildFileLoader } from "../build/loaders/buildFileLoader";
 
 export default ({
   config,
@@ -31,6 +32,7 @@ export default ({
     return rule;
   });
   config.module?.rules.push(buildCssLoader(true));
+  config.module?.rules?.push(buildFileLoader());
   config.plugins?.push(new DefinePlugin({
     __IS_DEV__: true,
     __API__: JSON.stringify(""),

@@ -15,5 +15,7 @@
   "Введите пароль": "Enter password",
   "Форма авторизации": "Authorization",
   "Выйти": "Logout",
-  "Неверные логин/пароль": "Incorrect username/password"
+  "Неверные логин/пароль": "Incorrect username/password",
+  "Укажите валюту": "Choose currency",
+  "Укажите страну": "Choose country"
 }

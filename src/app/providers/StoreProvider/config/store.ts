@@ -1,5 +1,5 @@
 import { configureStore, ReducersMapObject } from "@reduxjs/toolkit";
-import { StateSchema, StoreWithReducerManager } from "./StateSchema";
+import { StateSchema } from "./StateSchema";
 import { counterReducer } from "entities/Counter";
 import { userReducer } from "entities/User";
 import { createReducerManager } from "./reducerManager";
@@ -17,7 +17,7 @@ export function createReduxStore(initialState?: StateSchema, asyncReducers?: Red
 
   const reducerManager = createReducerManager(rootReducers);
 
-  const store: StoreWithReducerManager = configureStore({
+  const store = configureStore({
     reducer: reducerManager.reduce as Reducer<CombinedState<StateSchema>>,
     devTools: __IS_DEV__,
     preloadedState: initialState,
@@ -31,6 +31,7 @@ export function createReduxStore(initialState?: StateSchema, asyncReducers?: Red
     }),
   });
 
+  // @ts-expect-error
   store.reducerManager = reducerManager;
 
   return store;

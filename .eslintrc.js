@@ -20,7 +20,7 @@ module.exports = {
   ignorePatterns: ["src/**/*.test.tsx?"],
   plugins: ["react", "i18next"],
   rules: {
-    indent: [2, 2],
+    indent: "off",
     quotes: [
       2,
       "double",
