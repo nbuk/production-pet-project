@@ -38,3 +38,7 @@ export interface ThunkConfig<T> {
   rejectValue: T;
   extra: ThunkExtraArg;
 }
+
+export interface StoreWithReducerManager extends EnhancedStore<StateSchema> {
+  reducerManager?: ReducerManager;
+}
