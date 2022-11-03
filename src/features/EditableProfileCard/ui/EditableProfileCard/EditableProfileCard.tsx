@@ -3,7 +3,6 @@ import { Profile, ProfileCard } from "entities/Profile";
 import { useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 import { getProfileIsLoading } from "../../model/selectors/getProfileIsLoading/getProfileIsLoading";
-import { getProfileError } from "../../model/selectors/getProfileError/getProfileError";
 import { DynamicModuleLoader, ReducerList } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 import { profileActions, profileReducer } from "../../model/slice/profileSlice";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
@@ -12,7 +11,11 @@ import { Button, ButtonTheme } from "shared/ui/Button/Button";
 import { getProfileReadonly } from "../../model/selectors/getProfileReadonly/getProfileReadonly";
 import { getProfileForm } from "../../model/selectors/getProfileForm/getProfileForm";
 import styles from "./EditableProfileCard.module.scss";
-import { updateProfileData } from "features/EditableProfileCard/model/services/updateProfileData/updateProfileData";
+import { updateProfileData } from "../../model/services/updateProfileData/updateProfileData";
+import { getProfileValidateErrors } from "../../model/selectors/getProfileValidateErrors/getProfileValidateErrors";
+import { Text, TextTheme } from "shared/ui/Text/Text";
+import { ValidateProfileError } from "../../model/types/profile";
+import { getProfileError } from "features/EditableProfileCard/model/selectors/getProfileError/getProfileError";
 
 const reducers: ReducerList = {
   profile: profileReducer,
@@ -25,9 +28,20 @@ export const EditableProfileCard: FC = () => {
   const readonly = useSelector(getProfileReadonly);
   const isLoading = useSelector(getProfileIsLoading);
   const error = useSelector(getProfileError);
+  const validateErrors = useSelector(getProfileValidateErrors);
+
+  const validateErrorTranslates = {
+    [ValidateProfileError.SERVER_ERROR]: t("Серверная ошибка при сохранении"),
+    [ValidateProfileError.INCORRECT_COUNTRY]: t("Некорректная регион"),
+    [ValidateProfileError.INCORRECT_AGE]: t("Некорректный возраст"),
+    [ValidateProfileError.INCORRECT_USER_DATA]: t("Имя и фамилия обязательны"),
+    [ValidateProfileError.NO_DATA]: t("Данные не указаны"),
+  };
 
   useEffect(() => {
-    dispatch(fetchProfileData());
+    if (__PROJECT__ !== "storybook") {
+      dispatch(fetchProfileData());
+    }
   }, [dispatch]);
 
   const handleEdit = useCallback(() => {
@@ -76,6 +90,9 @@ export const EditableProfileCard: FC = () => {
             </>
             )}
       </div>
+      {validateErrors?.length && validateErrors.map((error, i) => (
+        <Text key={i} theme={TextTheme.ERROR} text={validateErrorTranslates[error]} />
+      ))}
       <ProfileCard
         readonly={readonly}
         data={formData}

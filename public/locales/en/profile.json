@@ -12,5 +12,10 @@
   "Возраст": "Age",
   "Ссылка на аватар": "Avatar link",
   "Имя пользователя": "Username",
-  "Валюта": "Currency"
+  "Валюта": "Currency",
+  "Серверная ошибка при сохранении": "Internal server error",
+  "Некорректная регион": "Incorrect country",
+  "Некорректный возраст": "Incorrect age",
+  "Имя и фамилия обязательны": "Incorrect firstname or lastname",
+  "Данные не указаны": "No data provided"
 }
