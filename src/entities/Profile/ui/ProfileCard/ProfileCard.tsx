@@ -48,11 +48,11 @@ export const ProfileCard: FC<PropsWithChildren<ProfileCardProps>> = (props) => {
   }, [onInputChange]);
 
   const handleAvatarChange = useCallback((value: string) => {
-    onInputChange?.("avatar", Number(value));
+    onInputChange?.("avatar", value);
   }, [onInputChange]);
 
   const handleUsernameChange = useCallback((value: string) => {
-    onInputChange?.("username", Number(value));
+    onInputChange?.("username", value);
   }, [onInputChange]);
 
   const handleCurrencyChange = useCallback((value: Currency) => {
