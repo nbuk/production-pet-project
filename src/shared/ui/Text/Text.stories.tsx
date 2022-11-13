@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 
-import { Text, TextTheme } from "./Text";
+import { Text, TextSize, TextTheme } from "./Text";
 import { ThemeDecorator } from "shared/config/storybook/ThemeDecorator";
 import { Theme } from "app/providers/ThemeProvider";
 
@@ -18,6 +18,13 @@ export const Primary = Template.bind({});
 Primary.args = {
   title: "Title text",
   text: "text under title",
+};
+
+export const SizeL = Template.bind({});
+SizeL.args = {
+  title: "Title text",
+  text: "text under title",
+  size: TextSize.L,
 };
 
 export const Error = Template.bind({});

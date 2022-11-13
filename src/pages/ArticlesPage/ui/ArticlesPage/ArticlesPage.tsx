@@ -1,7 +1,6 @@
 import { FC, memo, PropsWithChildren } from "react";
 import { classNames } from "shared/lib/classNames";
 import styles from "./ArticlesPage.module.scss";
-import { useTranslation } from "react-i18next";
 
 interface ArticlesPageProps {
   className?: string;
@@ -9,12 +8,9 @@ interface ArticlesPageProps {
 
 const ArticlesPage: FC<PropsWithChildren<ArticlesPageProps>> = (props) => {
   const { className } = props;
-  const { t } = useTranslation("article");
 
   return (
-    <div className={classNames(styles.ArticlesPage, {}, [className])}>
-      ARTICLES PAGE
-    </div>
+    <div className={classNames(styles.ArticlesPage, {}, [className])}></div>
   );
 };
 

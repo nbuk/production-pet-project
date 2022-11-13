@@ -58,6 +58,7 @@ module.exports = {
     "@typescript-eslint/no-dynamic-delete": "off",
     "@typescript-eslint/return-await": "off",
     "@typescript-eslint/no-invalid-void-type": "off",
+    "@typescript-eslint/no-unused-vars": [1],
   },
   globals: {
     __IS_DEV__: true,
