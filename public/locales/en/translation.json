@@ -18,5 +18,6 @@
   "Выйти": "Logout",
   "Неверные логин/пароль": "Incorrect username/password",
   "Укажите валюту": "Choose currency",
-  "Укажите страну": "Choose country"
+  "Укажите страну": "Choose country",
+  "Комментарии отсутствуют": "No comments"
 }
