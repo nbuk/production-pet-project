@@ -1,4 +1,4 @@
-import { FC, useCallback, useEffect } from "react";
+import { FC, useCallback } from "react";
 import { Profile, ProfileCard } from "entities/Profile";
 import { useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
@@ -16,6 +16,7 @@ import { getProfileValidateErrors } from "../../model/selectors/getProfileValida
 import { Text, TextTheme } from "shared/ui/Text/Text";
 import { ValidateProfileError } from "../../model/types/profile";
 import { getProfileError } from "features/EditableProfileCard/model/selectors/getProfileError/getProfileError";
+import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useInitialEffect";
 
 const reducers: ReducerList = {
   profile: profileReducer,
@@ -38,11 +39,9 @@ export const EditableProfileCard: FC = () => {
     [ValidateProfileError.NO_DATA]: t("Данные не указаны"),
   };
 
-  useEffect(() => {
-    if (__PROJECT__ !== "storybook") {
-      dispatch(fetchProfileData());
-    }
-  }, [dispatch]);
+  useInitialEffect(() => {
+    dispatch(fetchProfileData());
+  });
 
   const handleEdit = useCallback(() => {
     dispatch(profileActions.setReadonly(false));
