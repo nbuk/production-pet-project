@@ -1,6 +1,6 @@
 import { validateProfile } from "./validateProfile";
 import { Country } from "entities/Country";
-import { ValidateProfileError } from "features/EditableProfileCard/model/types/profile";
+import { ValidateProfileError } from "features/editableProfileCard/model/types/profile";
 
 const data = {
   firstname: "Nikolay",

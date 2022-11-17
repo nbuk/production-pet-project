@@ -5,7 +5,7 @@ import styles from "./Navbar.module.scss";
 import { useTranslation } from "react-i18next";
 import { Button } from "shared/ui/Button";
 import { ButtonTheme } from "shared/ui/Button/Button";
-import { LoginModal } from "features/AuthByUsername";
+import { LoginModal } from "features/authByUsername";
 import { useSelector } from "react-redux";
 import { getUserAuthData, userActions } from "entities/User";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";

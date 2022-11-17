@@ -21,9 +21,12 @@ export const profileSlice = createSlice({
     cancelEdit: (state) => {
       state.readonly = true;
       state.validateErrors = undefined;
-      state.form = state.data;
+      if (state.data) {
+        state.form = state.data;
+      }
     },
-    updateProfile: (state, action: PayloadAction<Profile>) => {
+    updateProfile: (state, action: PayloadAction<DeepPartial<Profile>>) => {
+      if (!state.form) return;
       state.form = {
         ...state.form,
         ...action.payload,

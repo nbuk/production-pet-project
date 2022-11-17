@@ -19,5 +19,7 @@
   "Неверные логин/пароль": "Incorrect username/password",
   "Укажите валюту": "Choose currency",
   "Укажите страну": "Choose country",
-  "Комментарии отсутствуют": "No comments"
+  "Комментарии отсутствуют": "No comments",
+  "Введите текст комментария": "Enter comment text",
+  "Отправить": "Send"
 }

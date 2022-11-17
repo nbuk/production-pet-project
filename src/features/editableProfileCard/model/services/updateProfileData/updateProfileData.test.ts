@@ -15,6 +15,11 @@ const data = {
 describe("updateProfileData", () => {
   test("success", async() => {
     const thunk = new TestAsyncThunk(updateProfileData, {
+      user: {
+        authData: {
+          id: "1",
+        },
+      },
       profile: {
         form: data,
       },
@@ -29,6 +34,11 @@ describe("updateProfileData", () => {
 
   test("error", async() => {
     const thunk = new TestAsyncThunk(updateProfileData, {
+      user: {
+        authData: {
+          id: "1",
+        },
+      },
       profile: {
         form: data,
       },
@@ -42,6 +52,11 @@ describe("updateProfileData", () => {
 
   test("validate error", async() => {
     const thunk = new TestAsyncThunk(updateProfileData, {
+      user: {
+        authData: {
+          id: "1",
+        },
+      },
       profile: {
         form: {
           ...data,

@@ -15,16 +15,23 @@ import { updateProfileData } from "../../model/services/updateProfileData/update
 import { getProfileValidateErrors } from "../../model/selectors/getProfileValidateErrors/getProfileValidateErrors";
 import { Text, TextTheme } from "shared/ui/Text/Text";
 import { ValidateProfileError } from "../../model/types/profile";
-import { getProfileError } from "features/EditableProfileCard/model/selectors/getProfileError/getProfileError";
+import { getProfileError } from "features/editableProfileCard/model/selectors/getProfileError/getProfileError";
 import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useInitialEffect";
+import { getUserAuthData } from "entities/User";
 
 const reducers: ReducerList = {
   profile: profileReducer,
 };
 
-export const EditableProfileCard: FC = () => {
+interface EditableProfileCardProps {
+  profileId: string;
+}
+
+export const EditableProfileCard: FC<EditableProfileCardProps> = (props) => {
+  const { profileId } = props;
   const { t } = useTranslation("profile");
   const dispatch = useAppDispatch();
+  const authData = useSelector(getUserAuthData);
   const formData = useSelector(getProfileForm);
   const readonly = useSelector(getProfileReadonly);
   const isLoading = useSelector(getProfileIsLoading);
@@ -40,7 +47,7 @@ export const EditableProfileCard: FC = () => {
   };
 
   useInitialEffect(() => {
-    dispatch(fetchProfileData());
+    dispatch(fetchProfileData(profileId));
   });
 
   const handleEdit = useCallback(() => {
@@ -59,36 +66,40 @@ export const EditableProfileCard: FC = () => {
     dispatch(profileActions.updateProfile({ [key]: value }));
   }, [dispatch]);
 
+  const canEdit = authData?.id === profileId;
+
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-      <div className={styles.buttonsGroup}>
-        {readonly
-          ? (
-            <Button
-              theme={ButtonTheme.OUTLINE}
-              onClick={handleEdit}
-            >
-              {t("Редактировать")}
-            </Button>
-            )
-          : (
-            <>
-              <Button
-                className={styles.cancelBtn}
-                theme={ButtonTheme.OUTLINE_RED}
-                onClick={handleCancelEdit}
-              >
-                {t("Отменить")}
-              </Button>
+      {canEdit && (
+        <div className={styles.buttonsGroup}>
+          {readonly
+            ? (
               <Button
                 theme={ButtonTheme.OUTLINE}
-                onClick={handleSave}
+                onClick={handleEdit}
               >
-                {t("Сохранить")}
+                {t("Редактировать")}
               </Button>
-            </>
-            )}
-      </div>
+              )
+            : (
+              <>
+                <Button
+                  className={styles.cancelBtn}
+                  theme={ButtonTheme.OUTLINE_RED}
+                  onClick={handleCancelEdit}
+                >
+                  {t("Отменить")}
+                </Button>
+                <Button
+                  theme={ButtonTheme.OUTLINE}
+                  onClick={handleSave}
+                >
+                  {t("Сохранить")}
+                </Button>
+              </>
+              )}
+        </div>
+      )}
       {validateErrors?.length && validateErrors.map((error, i) => (
         <Text key={i} theme={TextTheme.ERROR} text={validateErrorTranslates[error]} />
       ))}
