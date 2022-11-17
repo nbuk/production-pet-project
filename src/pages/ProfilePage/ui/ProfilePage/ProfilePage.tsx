@@ -4,7 +4,7 @@ import { ProfilePageHeader } from "pages/ProfilePage/ui/ProfilePageHeader/Profil
 import { useParams } from "react-router-dom";
 
 const ProfilePage = memo(() => {
-  const { id } = useParams();
+  const { id = "1" } = useParams();
 
   if (!id) {
     return null;

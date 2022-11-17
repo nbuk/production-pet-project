@@ -51,3 +51,25 @@ Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({
     },
   },
 })];
+
+export const Editable = Template.bind({});
+Editable.args = {};
+Editable.decorators = [ThemeDecorator(Theme.BLUE), StoreDecorator({
+  user: {
+    authData: {
+      id: "1",
+    },
+  },
+  profile: {
+    form: {
+      id: "1",
+      firstname: "Nikolay",
+      lastname: "Bukharin",
+      age: 26,
+      country: Country.Russia,
+      city: "Moscow",
+      username: "nbuk",
+      avatar,
+    },
+  },
+})];
