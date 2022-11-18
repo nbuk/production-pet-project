@@ -3,7 +3,7 @@ import { classNames } from "shared/lib/classNames";
 import styles from "./ArticleDetailsPage.module.scss";
 import { useTranslation } from "react-i18next";
 import { ArticleDetails } from "entities/Article";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { Text } from "shared/ui/Text/Text";
 import { CommentList } from "entities/Comment";
 import { DynamicModuleLoader, ReducerList } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
@@ -15,6 +15,8 @@ import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { fetchCommentsByArticleId } from "../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId";
 import AddCommentForm from "features/addCommentForm/ui/AddCommentForm/AddCommentForm";
 import { addCommentForArticle } from "../../model/services/addCommentForArticle/addCommentForArticle";
+import { Button, ButtonTheme } from "shared/ui/Button";
+import { RoutePath } from "shared/config/routeConfig/routeConfig";
 
 const reducers: ReducerList = {
   articleDetailsComments: articleDetailsCommentReducer,
@@ -31,6 +33,7 @@ const ArticleDetailsPage = memo((props: PropsWithChildren<ArticleDetailsPageProp
   const { id } = useParams<{ id: string; }>();
   const comments = useSelector(getArticleComments.selectAll);
   const commentsIsLoading = useSelector(getArticleDetailsCommentsIsLoading);
+  const navigate = useNavigate();
 
   useInitialEffect(() => {
     dispatch(fetchCommentsByArticleId(id));
@@ -39,6 +42,10 @@ const ArticleDetailsPage = memo((props: PropsWithChildren<ArticleDetailsPageProp
   const handleSendComment = useCallback((text: string) => {
     dispatch(addCommentForArticle(text));
   }, [dispatch]);
+
+  const handleBackToList = useCallback(() => {
+    navigate(RoutePath.articles);
+  }, [navigate]);
 
   if (!id) {
     return (
@@ -51,6 +58,9 @@ const ArticleDetailsPage = memo((props: PropsWithChildren<ArticleDetailsPageProp
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
       <div className={classNames(styles.ArticleDetailsPage, {}, [className])}>
+        <Button theme={ButtonTheme.OUTLINE} onClick={handleBackToList}>
+          {t("Назад к списку")}
+        </Button>
         <ArticleDetails id={id} />
         <Text className={styles.commentTitle} title={t("Комментарии")} />
         <AddCommentForm onSendComment={handleSendComment} />

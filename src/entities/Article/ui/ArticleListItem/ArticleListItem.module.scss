@@ -1,0 +1,111 @@
+.list {
+  .header {
+    display: flex;
+    align-items: center;
+  }
+
+  .views {
+    margin-left: auto;
+  }
+
+  .icon {
+    margin-left: 8px;
+  }
+
+  .username {
+    margin-left: 8px;
+  }
+
+  .date {
+    margin-left: auto;
+  }
+
+  .title {
+    margin-top: 8px;
+  }
+
+  .image {
+    width: 100%;
+    max-height: 250px;
+    object-fit: cover;
+    margin: 16px 0;
+  }
+
+  .textBlock {
+    max-height: 200px;
+    overflow-y: hidden;
+  }
+
+  .footer {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+  }
+}
+
+.plate {
+  width: 330px;
+  transition: 0.2s;
+  border-radius: 12px;
+  cursor: pointer;
+
+  .date {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 2px 5px;
+    background: rgb(255 255 255 / 70%);
+    opacity: 0.9;
+    border-radius: 5px;
+  }
+
+  &:hover {
+    box-shadow: 0 0 10px 3px var(--card-shadow);
+
+    .date {
+      display: block;
+    }
+  }
+
+  .imageWrapper {
+    width: 300px;
+    height: 300px;
+    position: relative;
+  }
+
+  .image {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+  }
+
+  .infoWrapper {
+    display: flex;
+    align-items: center;
+    margin-top: 8px;
+  }
+
+  .types p {
+    width: 210px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .views {
+    margin-left: auto;
+    margin-right: 8px;
+  }
+
+  .title {
+    margin-top: 8px;
+  }
+
+  .title p {
+    width: 300px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}

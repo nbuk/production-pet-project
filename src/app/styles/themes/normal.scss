@@ -2,7 +2,7 @@
   --bg-color: #ededed;
   --inverted-bg-color: #010154;
   --primary-color: #035ad0;
-  --secondary-color: #002f78;
+  --secondary-color: #004cab;
   --inverted-primary-color: #00e800;
   --inverted-secondary-color: #008e00;
 
@@ -12,4 +12,8 @@
 
   // code
   --code-bg: #dfdfdf;
+
+  // card
+  --card-bg: #d8d8d8;
+  --card-shadow: rgb(0 0 0 / 15%);
 }
