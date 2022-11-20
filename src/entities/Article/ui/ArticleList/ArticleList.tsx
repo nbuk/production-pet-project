@@ -24,14 +24,6 @@ export const ArticleList = memo((props: PropsWithChildren<ArticleListProps>) => 
     view = ArticleView.LIST,
   } = props;
 
-  if (isLoading) {
-    return (
-      <div className={classNames(styles.ArticleList, {}, [className, styles[view]])}>
-        {getSkeletons(view)}
-      </div>
-    );
-  }
-
   const renderArticle = (article: Article) => {
     return (
       <ArticleListItem key={article.id} className={styles.card} article={article} view={view} />
@@ -40,11 +32,12 @@ export const ArticleList = memo((props: PropsWithChildren<ArticleListProps>) => 
 
   return (
     <div className={classNames(styles.ArticleList, {}, [className, styles[view]])}>
-      { articles.length > 0
-        ? (
-            articles.map(renderArticle)
-          )
-        : null }
+       { articles.length > 0
+         ? (
+             articles.map(renderArticle)
+           )
+         : null }
+       { isLoading && getSkeletons(view) }
     </div>
   );
 });

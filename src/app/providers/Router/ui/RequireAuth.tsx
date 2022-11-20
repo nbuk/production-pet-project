@@ -18,8 +18,8 @@ export const RequireAuth: FC<RequireAuthProps> = (props) => {
   }
 
   return (
-    <div className={"page-wrapper"}>
+    <>
       {children}
-    </div>
+    </>
   );
 };

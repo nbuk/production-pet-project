@@ -2,6 +2,7 @@ import { memo } from "react";
 import { EditableProfileCard } from "features/editableProfileCard";
 import { ProfilePageHeader } from "pages/ProfilePage/ui/ProfilePageHeader/ProfilePageHeader";
 import { useParams } from "react-router-dom";
+import { Page } from "widgets/Page/Page";
 
 const ProfilePage = memo(() => {
   const { id = "1" } = useParams();
@@ -11,10 +12,10 @@ const ProfilePage = memo(() => {
   }
 
   return (
-    <div>
+    <Page>
       <ProfilePageHeader />
       <EditableProfileCard profileId={id} />
-    </div>
+    </Page>
   );
 });
 
