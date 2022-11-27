@@ -59,6 +59,7 @@ module.exports = {
     "@typescript-eslint/return-await": "off",
     "@typescript-eslint/no-invalid-void-type": "off",
     "@typescript-eslint/no-unused-vars": [1],
+    "n/no-callback-literal": "off",
   },
   globals: {
     __IS_DEV__: true,

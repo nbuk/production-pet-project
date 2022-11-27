@@ -9,7 +9,7 @@ import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { useSelector } from "react-redux";
 import { getArticlesPageIsLoading, getArticlesPageView } from "../../model/selectors/articlesPageSelectors";
 import { ArticleViewSelector } from "features/changeArticleView";
-import { Page } from "widgets/Page/Page";
+import { Page } from "widgets/Page/ui/Page";
 import { initArticlesPage } from "../../model/services/initArticlesPage/initArticlesPage";
 import { fetchNextArticlesPage } from "../../model/services/fetchNextArticlesPage/fetchNextArticlesPage";
 
