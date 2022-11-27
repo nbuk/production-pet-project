@@ -1,6 +1,6 @@
 import { CounterSchema } from "entities/Counter";
 import { UserSchema } from "entities/User";
-import { LoginSchema } from "../../../../features/authByUsername";
+import { LoginSchema } from "features/authByUsername";
 import { AnyAction, CombinedState, EnhancedStore, Reducer, ReducersMapObject } from "@reduxjs/toolkit";
 import { AxiosInstance } from "axios";
 import { ProfileSchema } from "features/editableProfileCard/model/types/profile";
