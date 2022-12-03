@@ -5,8 +5,8 @@ import { ReducerList } from "shared/lib/components/DynamicModuleLoader/DynamicMo
 import { articleDetailsReducer } from "entities/Article/model/slices/articleSlice";
 import { profileReducer } from "features/editableProfileCard/model/slice/profileSlice";
 import { addCommentFormReducer } from "features/addCommentForm/model/slices/addCommentFormSlice";
-import { articleDetailsCommentReducer } from "pages/ArticleDetailsPage/model/slice/articleDetailsCommentSlice";
 import { articlesPageReducer } from "pages/ArticlesPage/model/slices/articlePageSlice";
+import { articleDetailsPageReducer } from "pages/ArticleDetailsPage/model/slice";
 
 const defaultReducers: ReducerList = {
   loginForm: loginReducer,
@@ -14,7 +14,7 @@ const defaultReducers: ReducerList = {
   articleDetails: articleDetailsReducer,
   articlesPage: articlesPageReducer,
   addCommentForm: addCommentFormReducer,
-  articleDetailsComments: articleDetailsCommentReducer,
+  articleDetailsPage: articleDetailsPageReducer,
 };
 
 export const StoreDecorator = (state: DeepPartial<StateSchema>, asyncReducers?: ReducerList) => (StoryComponent: Story) => {

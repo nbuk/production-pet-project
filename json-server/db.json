@@ -69,6 +69,12 @@
       "userId": "1",
       "text": "comment about python",
       "id": 8
+    },
+    {
+      "articleId": "5",
+      "userId": "1",
+      "text": "test comment",
+      "id": 9
     }
   ],
   "users": [
