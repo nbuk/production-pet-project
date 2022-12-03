@@ -6,11 +6,13 @@ import { articleDetailsReducer } from "entities/Article/model/slices/articleSlic
 import { profileReducer } from "features/editableProfileCard/model/slice/profileSlice";
 import { addCommentFormReducer } from "features/addCommentForm/model/slices/addCommentFormSlice";
 import { articleDetailsCommentReducer } from "pages/ArticleDetailsPage/model/slice/articleDetailsCommentSlice";
+import { articlesPageReducer } from "pages/ArticlesPage/model/slices/articlePageSlice";
 
 const defaultReducers: ReducerList = {
   loginForm: loginReducer,
   profile: profileReducer,
   articleDetails: articleDetailsReducer,
+  articlesPage: articlesPageReducer,
   addCommentForm: addCommentFormReducer,
   articleDetailsComments: articleDetailsCommentReducer,
 };

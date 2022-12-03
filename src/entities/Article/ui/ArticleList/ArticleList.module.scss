@@ -1,11 +1,7 @@
 .plate {
   display: flex;
   flex-wrap: wrap;
-
-  .card {
-    margin-right: 15px;
-    margin-bottom: 15px;
-  }
+  gap: 30px;
 }
 
 .list {

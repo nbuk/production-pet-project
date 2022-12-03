@@ -31,7 +31,7 @@ const ArticleDetailsPage = memo((props: PropsWithChildren<ArticleDetailsPageProp
   const { className } = props;
   const dispatch = useAppDispatch();
   const { t } = useTranslation("article");
-  const { id } = useParams<{ id: string; }>();
+  const { id = "1" } = useParams<{ id: string; }>();
   const comments = useSelector(getArticleComments.selectAll);
   const commentsIsLoading = useSelector(getArticleDetailsCommentsIsLoading);
   const navigate = useNavigate();

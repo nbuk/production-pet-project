@@ -2,21 +2,21 @@ import { ChangeEvent, memo, useMemo } from "react";
 import { classNames, Mods } from "shared/lib/classNames";
 import styles from "./Select.module.scss";
 
-interface SelectOption {
-  value: string;
+export interface SelectOption<T extends string> {
+  value: T;
   label: string;
 }
 
-interface SelectProps {
+interface SelectProps<T extends string> {
   className?: string;
   label?: string;
-  options: SelectOption[];
-  value: string;
+  options: Array<SelectOption<T>>;
+  value: T;
   readonly?: boolean;
-  onChange: (value: string) => void;
+  onChange: (value: T) => void;
 }
 
-export const Select = memo((props: SelectProps) => {
+const SelectComponent = <T extends string>(props: SelectProps<T>) => {
   const {
     className,
     label,
@@ -39,7 +39,7 @@ export const Select = memo((props: SelectProps) => {
   }, [options]);
 
   const handleChange = (e: ChangeEvent<HTMLSelectElement>) => {
-    onChange(e.target.value);
+    onChange(e.target.value as T);
   };
 
   const mods: Mods = {
@@ -50,7 +50,7 @@ export const Select = memo((props: SelectProps) => {
     <div className={classNames(styles.wrapper, mods, [className])}>
       {label && (
         <span className={styles.label}>
-          {label + ">"}
+          {label + " >"}
         </span>
       )}
       <select
@@ -64,4 +64,6 @@ export const Select = memo((props: SelectProps) => {
 
     </div>
   );
-});
+};
+
+export const Select = memo(SelectComponent) as typeof SelectComponent;

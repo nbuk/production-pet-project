@@ -1,0 +1,14 @@
+import { ComponentMeta, ComponentStory } from "@storybook/react";
+
+import { ArticleTypeTabs } from "./ArticleTypeTabs";
+
+export default {
+  title: "features/ArticleTypeTabs",
+  component: ArticleTypeTabs,
+  argTypes: {},
+} as ComponentMeta<typeof ArticleTypeTabs>;
+
+const Template: ComponentStory<typeof ArticleTypeTabs> = (args) => <ArticleTypeTabs {...args} />;
+
+export const Normal = Template.bind({});
+Normal.args = {};

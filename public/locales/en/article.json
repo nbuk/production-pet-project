@@ -3,5 +3,10 @@
   "Произошла ошибка при загрузке статьи": "An error occurred while fetch article",
   "Комментарии": "Comments",
   "Читать далее...": "Read more...",
-  "Назад к списку": "Back to list"
+  "Назад к списку": "Back to list",
+  "Все статьи": "All",
+  "Айти": "IT",
+  "Наука": "Science",
+  "Экономика": "Economics",
+  "Статьи не найдены": "Articles not found"
 }

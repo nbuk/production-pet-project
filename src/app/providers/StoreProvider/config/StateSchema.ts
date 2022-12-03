@@ -1,4 +1,3 @@
-import { CounterSchema } from "entities/Counter";
 import { UserSchema } from "entities/User";
 import { LoginSchema } from "features/authByUsername";
 import { AnyAction, CombinedState, EnhancedStore, Reducer, ReducersMapObject } from "@reduxjs/toolkit";
@@ -11,7 +10,6 @@ import { ArticlePageSchema } from "pages/ArticlesPage";
 import { ScrollPositionSchema } from "widgets/Page";
 
 export interface StateSchema {
-  counter: CounterSchema;
   user: UserSchema;
   scrollPosition: ScrollPositionSchema;
 
