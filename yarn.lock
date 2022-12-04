@@ -6722,6 +6722,13 @@ eslint-plugin-es@^4.1.0:
     eslint-utils "^2.0.0"
     regexpp "^3.0.0"
 
+eslint-plugin-feature-sliced-paths@0.0.4:
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-feature-sliced-paths/-/eslint-plugin-feature-sliced-paths-0.0.4.tgz#054c2e6dda2c58a9adc7cea19d56f83524d6181f"
+  integrity sha512-kQ4cj1fIGXcaXrHRCKj5+EUU/y3Dkmd5MXWhk2Mt0wPDF8JOSpdbJQgJfw//s9hTeVdtjd9JEsntL0y05zIJhA==
+  dependencies:
+    requireindex "^1.2.0"
+
 eslint-plugin-i18next@^6.0.0-2:
   version "6.0.0-4"
   resolved "https://registry.yarnpkg.com/eslint-plugin-i18next/-/eslint-plugin-i18next-6.0.0-4.tgz#985be971145697dc083a99c5da07f655e52a1c32"
@@ -12354,7 +12361,7 @@ require-from-string@^2.0.2:
   resolved "https://registry.yarnpkg.com/require-from-string/-/require-from-string-2.0.2.tgz#89a7fdd938261267318eafe14f9c32e598c36909"
   integrity sha512-Xf0nWe6RseziFMu+Ap9biiUbmplq6S9/p+7w7YXP/JBHhrUDDUhwa+vANyubuqfZWTveU//DYVGsDG7RKL/vEw==
 
-requireindex@^1.1.0:
+requireindex@^1.1.0, requireindex@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/requireindex/-/requireindex-1.2.0.tgz#3463cdb22ee151902635aa6c9535d4de9c2ef1ef"
   integrity sha512-L9jEkOi3ASd9PYit2cwRfyppc9NoABujTP8/5gFcbERmo5jUoAKovIC3fsF17pkTnGsrByysqX+Kxd2OTNI1ww==

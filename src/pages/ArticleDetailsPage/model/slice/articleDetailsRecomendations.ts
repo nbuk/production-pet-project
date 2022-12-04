@@ -1,10 +1,8 @@
 import { createEntityAdapter, createSlice } from "@reduxjs/toolkit";
-import {
-  ArticleDetailsRecommendationsSchema,
-} from "pages/ArticleDetailsPage/model/types/ArticleDetailsRecommendationsSchema";
+import { ArticleDetailsRecommendationsSchema } from "../types/ArticleDetailsRecommendationsSchema";
 import { StateSchema } from "app/providers/StoreProvider";
 import { Article } from "entities/Article";
-import { fetchRecommendations } from "pages/ArticleDetailsPage/model/services/fetchRecommendations/fetchRecommendations";
+import { fetchRecommendations } from "../services/fetchRecommendations/fetchRecommendations";
 
 const initialState: ArticleDetailsRecommendationsSchema = {
   isLoading: false,

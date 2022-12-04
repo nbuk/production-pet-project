@@ -15,7 +15,7 @@ import { updateProfileData } from "../../model/services/updateProfileData/update
 import { getProfileValidateErrors } from "../../model/selectors/getProfileValidateErrors/getProfileValidateErrors";
 import { Text, TextTheme } from "shared/ui/Text/Text";
 import { ValidateProfileError } from "../../model/types/profile";
-import { getProfileError } from "features/editableProfileCard/model/selectors/getProfileError/getProfileError";
+import { getProfileError } from "../../model/selectors/getProfileError/getProfileError";
 import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useInitialEffect";
 import { getUserAuthData } from "entities/User";
 

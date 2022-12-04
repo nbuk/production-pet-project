@@ -1,6 +1,6 @@
 import { memo } from "react";
 import { EditableProfileCard } from "features/editableProfileCard";
-import { ProfilePageHeader } from "pages/ProfilePage/ui/ProfilePageHeader/ProfilePageHeader";
+import { ProfilePageHeader } from "../ProfilePageHeader/ProfilePageHeader";
 import { useParams } from "react-router-dom";
 import { Page } from "widgets/Page/ui/Page";
 

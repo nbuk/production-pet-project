@@ -1,8 +1,10 @@
 import { validateProfile } from "./validateProfile";
 import { Country } from "entities/Country";
-import { ValidateProfileError } from "features/editableProfileCard/model/types/profile";
+import { ValidateProfileError } from "../../types/profile";
+import { Profile } from "entities/Profile";
 
 const data = {
+  id: "1",
   firstname: "Nikolay",
   lastname: "Bukharin",
   age: 26,
@@ -31,7 +33,7 @@ describe("validateProfile", () => {
   });
 
   test("invalid all", async() => {
-    const result = validateProfile({});
+    const result = validateProfile({} as Profile);
 
     expect(result).toEqual([ValidateProfileError.INCORRECT_USER_DATA, ValidateProfileError.INCORRECT_AGE, ValidateProfileError.INCORRECT_COUNTRY]);
   });

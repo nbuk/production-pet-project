@@ -1,7 +1,6 @@
 import { articleDetailsReducer } from "./articleSlice";
 import { ArticleDetailsSchema } from "../types/articleDetailsSchema";
-import { Article } from "entities/Article";
-import { ArticleBlockType, ArticleType } from "../types/article";
+import { Article, ArticleBlockType, ArticleType } from "../types/article";
 import { fetchArticleById } from "../services/fetchArticleById/fetchArticleById";
 
 const data: Article = {
@@ -12,6 +11,10 @@ const data: Article = {
   views: 1022,
   createdAt: "26.02.2022",
   type: [ArticleType.IT],
+  user: {
+    id: "1",
+    username: "admin",
+  },
   blocks: [
     {
       id: "1",

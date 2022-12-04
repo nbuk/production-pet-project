@@ -18,7 +18,7 @@ module.exports = {
     project: "./tsconfig.json",
   },
   ignorePatterns: ["src/**/*.test.tsx?"],
-  plugins: ["react", "i18next"],
+  plugins: ["react", "i18next", "feature-sliced-paths"],
   rules: {
     indent: "off",
     quotes: [
@@ -60,6 +60,7 @@ module.exports = {
     "@typescript-eslint/no-invalid-void-type": "off",
     "@typescript-eslint/no-unused-vars": [1],
     "n/no-callback-literal": "off",
+    "feature-sliced-paths/path-checker": "error",
   },
   globals: {
     __IS_DEV__: true,

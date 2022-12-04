@@ -20,7 +20,7 @@ import { getArticleRecommendations } from "../../model/slice/articleDetailsRecom
 import { getArticleDetailsRecommendationsIsLoading } from "../../model/selectors/recommendations";
 import { fetchRecommendations } from "../../model/services/fetchRecommendations/fetchRecommendations";
 import { articleDetailsPageReducer } from "../../model/slice";
-import { ArticleDetailsPageHeader } from "pages/ArticleDetailsPage/ui/ArticleDetailsPageHeader/ArticleDetailsPageHeader";
+import { ArticleDetailsPageHeader } from "../ArticleDetailsPageHeader/ArticleDetailsPageHeader";
 
 const reducers: ReducerList = {
   articleDetailsPage: articleDetailsPageReducer,
