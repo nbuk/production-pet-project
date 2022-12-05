@@ -4,6 +4,7 @@ import { Country } from "entities/Country";
 import { updateProfileData } from "../services/updateProfileData/updateProfileData";
 
 const data = {
+  id: "1",
   firstname: "Nikolay",
   lastname: "Bukharin",
   age: 26,

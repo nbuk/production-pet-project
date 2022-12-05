@@ -6,6 +6,10 @@ describe("articleDetails selector", () => {
   test("should return data", () => {
     const data: Article = {
       id: "1",
+      user: {
+        id: "1",
+        username: "admin",
+      },
       title: "Some title",
       img: "123",
       createdAt: "1.01.2001",

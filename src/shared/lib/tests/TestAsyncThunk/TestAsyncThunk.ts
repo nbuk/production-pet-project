@@ -26,6 +26,6 @@ export class TestAsyncThunk<Returned, Arg, RejectedValue> {
   async callThunk(arg: Arg) {
     const action = this.actionCreator(arg);
 
-    return action(this.dispatch, this.getState, { api: this.api, navigate: this.navigate });
+    return action(this.dispatch, this.getState, { api: this.api });
   }
 }

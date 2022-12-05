@@ -17,7 +17,7 @@ module.exports = {
     sourceType: "module",
     project: "./tsconfig.json",
   },
-  ignorePatterns: ["src/**/*.test.tsx?"],
+  ignorePatterns: ["src/**/*.test.tsx?", "src/**/*.stories.tsx"],
   plugins: ["react", "i18next", "feature-sliced-paths"],
   rules: {
     indent: "off",
