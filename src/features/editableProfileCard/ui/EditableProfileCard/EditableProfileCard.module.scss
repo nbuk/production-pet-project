@@ -1,9 +1,9 @@
 .buttonsGroup {
-  display: flex;
-  justify-content: flex-end;
-  margin-bottom: 10px;
+  position: absolute;
+  top: 15px;
+  right: 15px;
 }
 
-.cancelBtn {
-  margin-right: 10px;
+.wrapper {
+  position: relative;
 }

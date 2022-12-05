@@ -1,6 +1,5 @@
 import { memo, PropsWithChildren } from "react";
 import { classNames } from "shared/lib/classNames";
-import styles from "./ArticleEditPage.module.scss";
 import { useTranslation } from "react-i18next";
 import { Page } from "widgets/Page";
 import { useParams } from "react-router-dom";
@@ -16,7 +15,7 @@ const ArticleEditPage = memo((props: PropsWithChildren<ArticleEditPageProps>) =>
   const isEdit = Boolean(id);
 
   return (
-    <Page className={classNames(styles.ArticleEditPage, {}, [className])}>
+    <Page className={classNames("", {}, [className])}>
       {isEdit ? t("Редактирование статьи") : t("Создание новой статьи")}
     </Page>
   );

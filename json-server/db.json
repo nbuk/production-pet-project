@@ -75,6 +75,12 @@
       "userId": "1",
       "text": "test comment",
       "id": 9
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "test",
+      "id": 10
     }
   ],
   "users": [

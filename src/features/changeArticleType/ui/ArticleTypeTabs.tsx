@@ -1,5 +1,4 @@
 import { memo, PropsWithChildren, useCallback, useMemo } from "react";
-import styles from "./ArticleTypeTabs.module.scss";
 import { useTranslation } from "react-i18next";
 import { TabItem, Tabs } from "shared/ui/Tabs";
 import { ArticleType } from "entities/Article";
@@ -40,7 +39,7 @@ export const ArticleTypeTabs = memo((props: PropsWithChildren<ArticleTypeTabsPro
 
   return (
     <Tabs
-      className={classNames(styles.ArticleTypeTabs, {}, [className])}
+      className={classNames("", {}, [className])}
       tabs={typeTabs}
       value={activeType}
       onTabClick={handleTypeChange}

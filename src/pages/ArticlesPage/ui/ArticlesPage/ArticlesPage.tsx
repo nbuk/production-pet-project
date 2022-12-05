@@ -10,9 +10,10 @@ import { useSelector } from "react-redux";
 import { getArticlesPageIsLoading, getArticlesPageView } from "../../model/selectors/articlesPageSelectors";
 import { Page } from "widgets/Page/ui/Page";
 import { initArticlesPage } from "../../model/services/initArticlesPage/initArticlesPage";
-import { fetchNextArticlesPage } from "../../model/services/fetchNextArticlesPage/fetchNextArticlesPage";
 import { ArticlesPageFilters } from "../ArticlesPageFilters/ArticlesPageFilters";
 import { useSearchParams } from "react-router-dom";
+import { VStack } from "shared/ui/Stack";
+import { fetchNextArticlesPage } from "../../model/services/fetchNextArticlesPage/fetchNextArticlesPage";
 
 const reducers: ReducerList = {
   articlesPage: articlesPageReducer,
@@ -45,13 +46,15 @@ const ArticlesPage: FC<PropsWithChildren<ArticlesPageProps>> = (props) => {
         className={classNames(styles.ArticlesPage, {}, [className])}
         onScrollEnd={handleLoadNexPart}
       >
-        <ArticlesPageFilters />
-        <ArticleList
-          className={styles.list}
-          isLoading={isLoading}
-          articles={articles}
-          view={view}
-        />
+        <VStack gap={32} max>
+          <ArticlesPageFilters />
+          <ArticleList
+            className={styles.list}
+            isLoading={isLoading}
+            articles={articles}
+            view={view}
+          />
+        </VStack>
       </Page>
     </DynamicModuleLoader>
   );

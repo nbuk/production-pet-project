@@ -7,6 +7,7 @@ import { ArticleListItemSkeleton } from "../ArticleListItem/ArticleListItemSkele
 import { Text } from "shared/ui/Text";
 import { TextSize } from "shared/ui/Text/Text";
 import { useTranslation } from "react-i18next";
+import { HStack, VStack } from "shared/ui/Stack";
 
 interface ArticleListProps {
   className?: string;
@@ -44,10 +45,12 @@ export const ArticleList = memo((props: PropsWithChildren<ArticleListProps>) => 
     );
   }
 
+  const Wrapper = view === ArticleView.LIST ? VStack : HStack;
+
   return (
-    <div className={classNames(styles.ArticleList, {}, [styles[view], className])}>
+    <Wrapper gap={16} max wrap className={classNames("", {}, [className])}>
        { articles.length > 0 && articles.map(renderArticle) }
-       { isLoading && getSkeletons(view) }
-    </div>
+      { isLoading && getSkeletons(view) }
+    </Wrapper>
   );
 });

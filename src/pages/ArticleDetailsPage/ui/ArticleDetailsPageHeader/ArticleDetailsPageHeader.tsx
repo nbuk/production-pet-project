@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { getArticleDetailsData } from "entities/Article";
 import { getCanEditArticle } from "../../model/selectors/article";
+import { HStack } from "shared/ui/Stack";
 
 interface ArticleDetailsPageHeaderProps {
   className?: string;
@@ -31,7 +32,7 @@ export const ArticleDetailsPageHeader: FC<PropsWithChildren<ArticleDetailsPageHe
   if (!article) return null;
 
   return (
-    <div className={classNames(styles.ArticleDetailsPageHeader, {}, [className])}>
+    <HStack justify={"between"} max className={classNames("", {}, [className])}>
       <Button theme={ButtonTheme.OUTLINE} onClick={handleBackToList}>
         {t("Назад к списку")}
       </Button>
@@ -45,6 +46,6 @@ export const ArticleDetailsPageHeader: FC<PropsWithChildren<ArticleDetailsPageHe
         </Button>
       }
 
-    </div>
+    </HStack>
   );
 };

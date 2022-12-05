@@ -18,6 +18,7 @@ import { ValidateProfileError } from "../../model/types/profile";
 import { getProfileError } from "../../model/selectors/getProfileError/getProfileError";
 import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useInitialEffect";
 import { getUserAuthData } from "entities/User";
+import { HStack, VStack } from "shared/ui/Stack";
 
 const reducers: ReducerList = {
   profile: profileReducer,
@@ -70,46 +71,51 @@ export const EditableProfileCard: FC<EditableProfileCardProps> = (props) => {
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-      {canEdit && (
-        <div className={styles.buttonsGroup}>
-          {readonly
-            ? (
-              <Button
-                theme={ButtonTheme.OUTLINE}
-                onClick={handleEdit}
-              >
-                {t("Редактировать")}
-              </Button>
-              )
-            : (
-              <>
-                <Button
-                  className={styles.cancelBtn}
-                  theme={ButtonTheme.OUTLINE_RED}
-                  onClick={handleCancelEdit}
-                >
-                  {t("Отменить")}
-                </Button>
-                <Button
-                  theme={ButtonTheme.OUTLINE}
-                  onClick={handleSave}
-                >
-                  {t("Сохранить")}
-                </Button>
-              </>
-              )}
-        </div>
-      )}
-      {validateErrors?.length && validateErrors.map((error, i) => (
-        <Text key={i} theme={TextTheme.ERROR} text={validateErrorTranslates[error]} />
-      ))}
-      <ProfileCard
-        readonly={readonly}
-        data={formData}
-        isLoading={isLoading}
-        error={error}
-        onInputChange={handleUpdateProfile}
-      />
+      <VStack gap={16} max>
+        {validateErrors?.length && validateErrors.map((error, i) => (
+          <Text key={i} theme={TextTheme.ERROR} text={validateErrorTranslates[error]} />
+        ))}
+        <HStack max className={styles.wrapper}>
+          {canEdit && (
+            <HStack gap={16} className={styles.buttonsGroup}>
+              {readonly
+                ? (
+                  <Button
+                    theme={ButtonTheme.OUTLINE}
+                    onClick={handleEdit}
+                  >
+                    {t("Редактировать")}
+                  </Button>
+                  )
+                : (
+                  <>
+                    <Button
+                      className={styles.cancelBtn}
+                      theme={ButtonTheme.OUTLINE_RED}
+                      onClick={handleCancelEdit}
+                    >
+                      {t("Отменить")}
+                    </Button>
+                    <Button
+                      theme={ButtonTheme.OUTLINE}
+                      onClick={handleSave}
+                    >
+                      {t("Сохранить")}
+                    </Button>
+                  </>
+                  )}
+            </HStack>
+          )}
+          <ProfileCard
+            readonly={readonly}
+            data={formData}
+            isLoading={isLoading}
+            error={error}
+            onInputChange={handleUpdateProfile}
+          />
+        </HStack>
+      </VStack>
+
     </DynamicModuleLoader>
   );
 };

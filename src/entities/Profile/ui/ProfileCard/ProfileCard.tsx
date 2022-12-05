@@ -9,6 +9,7 @@ import { Loader } from "shared/ui/Loader/Loader";
 import { Avatar } from "shared/ui/Avatar/Avatar";
 import { Currency, CurrencySelect } from "entities/Currency";
 import { Country, CountrySelect } from "entities/Country";
+import { HStack, VStack } from "shared/ui/Stack";
 
 interface ProfileCardProps {
   className?: string;
@@ -65,22 +66,22 @@ export const ProfileCard: FC<PropsWithChildren<ProfileCardProps>> = (props) => {
 
   if (isLoading) {
     return (
-      <div className={classNames(styles.ProfileCard, {}, [className, styles.loading])}>
+      <HStack max align={"center"} justify={"center"} className={classNames(styles.ProfileCard, {}, [className, styles.loading])}>
         <Loader />
-      </div>
+      </HStack>
     );
   }
 
   if (error) {
     return (
-      <div className={classNames(styles.ProfileCard, {}, [className, styles.error])}>
+      <VStack max justify={"center"} align={"center"} className={classNames(styles.ProfileCard, {}, [className, styles.error])}>
         <Text
           theme={TextTheme.ERROR}
           align={TextAlign.CENTER}
           title={t("Произошла ошибка при загрузке данных")}
           text={t("Попробуйте обновить страницу")}
         />
-      </div>
+      </VStack>
     );
   }
 
@@ -89,7 +90,7 @@ export const ProfileCard: FC<PropsWithChildren<ProfileCardProps>> = (props) => {
   };
 
   return (
-    <div className={classNames(styles.ProfileCard, mods, [className])}>
+    <VStack gap={8} max className={classNames(styles.ProfileCard, mods, [className])}>
       {data?.avatar && (
         <Avatar className={styles.avatar} src={data.avatar} size={100} />
       )}
@@ -147,6 +148,6 @@ export const ProfileCard: FC<PropsWithChildren<ProfileCardProps>> = (props) => {
         value={data?.country ?? Country.Russia}
         onChange={handleCountryChange}
       />
-    </div>
+    </VStack>
   );
 };

@@ -1,5 +1,4 @@
 import { FC, PropsWithChildren, useCallback } from "react";
-import styles from "./ArticlesPageFilters.module.scss";
 import { classNames } from "shared/lib/classNames";
 import { ArticleViewSelector } from "features/changeArticleView";
 import { ArticlesSort } from "features/sortArticle";
@@ -19,6 +18,7 @@ import { SortOrder } from "shared/types";
 import { fetchArticleList } from "../../model/services/fetchArticleList/fetchArticleList";
 import { useDebounce } from "shared/lib/hooks/useDebounce";
 import { ArticleTypeTabs } from "features/changeArticleType";
+import { HStack, VStack } from "shared/ui/Stack";
 
 interface ArticlesPageFiltersProps {
   className?: string;
@@ -41,9 +41,7 @@ export const ArticlesPageFilters: FC<PropsWithChildren<ArticlesPageFiltersProps>
 
   const handleViewChange = useCallback((view: ArticleView) => {
     dispatch(articlesPageActions.setView(view));
-    dispatch(articlesPageActions.setPage(1));
-    debouncedFetchData();
-  }, [dispatch, debouncedFetchData]);
+  }, [dispatch]);
 
   const handleOrderChange = useCallback((order: SortOrder) => {
     dispatch(articlesPageActions.setOrder(order));
@@ -70,14 +68,13 @@ export const ArticlesPageFilters: FC<PropsWithChildren<ArticlesPageFiltersProps>
   }, [dispatch, debouncedFetchData]);
 
   return (
-    <div className={classNames(styles.ArticlesPageFilters, {}, [className])}>
-      <div className={styles.sortWrapper}>
+    <VStack max gap={16} className={classNames("", {}, [className])}>
+      <HStack max justify={"between"}>
         <ArticlesSort sort={sort} order={order} onOrderChange={handleOrderChange} onSortChange={handleSortChange} />
         <ArticleViewSelector view={view} onViewChange={handleViewChange} />
-      </div>
-
+      </HStack>
       <ArticlesSearch searchText={search} onSearchChange={handleSearchChange} />
       <ArticleTypeTabs activeType={type} onTypeChange={handleTypeChange} />
-    </div>
+    </VStack>
   );
 };

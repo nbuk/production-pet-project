@@ -1,6 +1,4 @@
 import { memo, PropsWithChildren, useCallback } from "react";
-import { classNames } from "shared/lib/classNames";
-import styles from "./ArticleDetails.module.scss";
 import { useTranslation } from "react-i18next";
 import { DynamicModuleLoader, ReducerList } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 import { articleDetailsReducer } from "../../model/slices/articleSlice";
@@ -23,6 +21,9 @@ import { ArticleCodeBlockComponent } from "../ArticleCodeBlockComponent/ArticleC
 import { ArticleImageBlockComponent } from "../ArticleImageBlockComponent/ArticleImageBlockComponent";
 import { ArticleTextBlockComponent } from "../ArticleTextBlockComponent/ArticleTextBlockComponent";
 import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useInitialEffect";
+import { HStack, VStack } from "shared/ui/Stack";
+import { classNames } from "shared/lib/classNames";
+import styles from "./ArticleDetails.module.scss";
 
 const reducers: ReducerList = {
   articleDetails: articleDetailsReducer,
@@ -44,11 +45,11 @@ export const ArticleDetails = memo((props: PropsWithChildren<ArticleDetailsProps
   const renderBlock = useCallback((block: ArticleBlock) => {
     switch (block.type) {
       case ArticleBlockType.CODE:
-        return <ArticleCodeBlockComponent key={block.id} className={styles.block} block={block} />;
+        return <ArticleCodeBlockComponent key={block.id} block={block} />;
       case ArticleBlockType.IMAGE:
-        return <ArticleImageBlockComponent key={block.id} className={styles.block} block={block} />;
+        return <ArticleImageBlockComponent key={block.id} block={block} />;
       case ArticleBlockType.TEXT:
-        return <ArticleTextBlockComponent key={block.id} className={styles.block} block={block} />;
+        return <ArticleTextBlockComponent key={block.id} block={block} />;
       default:
         return null;
     }
@@ -63,11 +64,13 @@ export const ArticleDetails = memo((props: PropsWithChildren<ArticleDetailsProps
   if (isLoading) {
     content = (
       <>
-        <Skeleton className={styles.avatar} width={200} height={200} borderRadius={"50%"} />
-        <Skeleton className={styles.title} width={300} height={32} />
-        <Skeleton className={styles.skeleton} width={600} height={24} />
-        <Skeleton className={styles.skeleton} width={"100%"} height={200} />
-        <Skeleton className={styles.skeleton} width={"100%"} height={200} />
+        <HStack align={"center"} justify={"center"} max>
+          <Skeleton width={200} height={200} borderRadius={"50%"} />
+        </HStack>
+        <Skeleton width={300} height={32} />
+        <Skeleton width={600} height={24} />
+        <Skeleton width={"100%"} height={200} />
+        <Skeleton width={"100%"} height={200} />
       </>
     );
   }
@@ -84,33 +87,36 @@ export const ArticleDetails = memo((props: PropsWithChildren<ArticleDetailsProps
   if (article) {
     content = (
       <>
-        <div className={styles.avatarWrapper}>
-          <Avatar className={styles.avatar} size={200} src={article.img} />
-        </div>
+        <HStack align={"center"} justify={"center"} max>
+          <Avatar size={200} src={article.img} />
+        </HStack>
         <Text
-          className={styles.title}
           title={article.title}
           text={article.subtitle}
           size={TextSize.L}
         />
-        <div className={styles.articleInfo}>
-          <Icon className={styles.icon} Svg={EyeIcon} />
-          <Text text={String(article.views)} />
-        </div>
-        <div className={styles.articleInfo}>
-          <Icon className={styles.icon} Svg={CalendarIcon} />
-          <Text text={article.createdAt} />
-        </div>
-        {article.blocks.map(renderBlock)}
+        <VStack gap={8} max>
+          <HStack gap={8} align={"center"} max>
+            <Icon Svg={EyeIcon} />
+            <Text text={String(article.views)} />
+          </HStack>
+          <HStack gap={8} align={"center"} max>
+            <Icon Svg={CalendarIcon} />
+            <Text text={article.createdAt} />
+          </HStack>
+        </VStack>
+        <VStack gap={16} max>
+          {article.blocks.map(renderBlock)}
+        </VStack>
       </>
     );
   }
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-      <div className={classNames(styles.ArticleDetails, {}, [className])}>
+      <VStack max gap={16} className={classNames(styles.ArticleDetails, {}, [className])}>
         {content}
-      </div>
+      </VStack>
     </DynamicModuleLoader>
   );
 });
