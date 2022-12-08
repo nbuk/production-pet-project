@@ -2,10 +2,9 @@ import { Fragment, ReactNode } from "react";
 import { Listbox as HListbox } from "@headlessui/react";
 import styles from "./Listbox.module.scss";
 import { classNames, Mods } from "shared/lib/classNames";
-import { Button } from "shared/ui/Button";
 import { HStack } from "shared/ui/Stack";
-
-type DropdownDirection = "top" | "bottom";
+import { DropdownDirection } from "shared/types/ui";
+import { Button } from "shared/ui/Button";
 
 export interface ListboxItem<T> {
   value: T;
@@ -32,7 +31,7 @@ export const Listbox = <T extends string>(props: ListboxProps<T>) => {
     defaultValue,
     label,
     readonly,
-    direction = "bottom",
+    direction = "bottom-right",
     onChange,
   } = props;
 
@@ -41,7 +40,7 @@ export const Listbox = <T extends string>(props: ListboxProps<T>) => {
   ];
 
   return (
-    <HStack gap={8} max>
+    <HStack gap={8}>
       {label && (
         <span className={styles.label}>
           {label + " >"}
@@ -55,12 +54,10 @@ export const Listbox = <T extends string>(props: ListboxProps<T>) => {
         onChange={onChange}
       >
         <HListbox.Button
-          className={styles.trigger}
+          as={Button}
           disabled={readonly}
         >
-          <Button disabled={readonly}>
             {value ?? defaultValue}
-          </Button>
         </HListbox.Button>
         <HListbox.Options
           className={classNames(styles.options, {}, optionsClasses)}

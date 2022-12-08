@@ -3,14 +3,6 @@
   width: 100%;
 }
 
-.trigger {
-  background: none;
-  border: none;
-  outline: none;
-  padding: 0;
-  margin: 0;
-}
-
 .label {
   white-space: nowrap;
   color: var(--secondary-color);
@@ -24,13 +16,26 @@
   overflow: hidden;
   z-index: 10;
 
-  &.bottom {
-    transform: translateY(5px);
+  &.top-left {
+    bottom: 100%;
+    right: 0;
+    transform: translateY(-5px);
   }
 
-  &.top {
+  &.top-right {
     bottom: 100%;
+    left: 0;
     transform: translateY(-5px);
+  }
+
+  &.bottom-left {
+    transform: translateY(5px);
+    right: 0;
+  }
+
+  &.bottom-right {
+    transform: translateY(5px);
+    left: 0;
   }
 }
 
