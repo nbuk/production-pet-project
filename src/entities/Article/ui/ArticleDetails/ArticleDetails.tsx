@@ -86,7 +86,7 @@ export const ArticleDetails = memo((props: PropsWithChildren<ArticleDetailsProps
 
   if (article) {
     content = (
-      <>
+      <article>
         <HStack align={"center"} justify={"center"} max>
           <Avatar size={200} src={article.img} />
         </HStack>
@@ -108,7 +108,7 @@ export const ArticleDetails = memo((props: PropsWithChildren<ArticleDetailsProps
         <VStack gap={16} max>
           {article.blocks.map(renderBlock)}
         </VStack>
-      </>
+      </article>
     );
   }
 

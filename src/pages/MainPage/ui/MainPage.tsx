@@ -7,7 +7,9 @@ const MainPage: FC = memo(() => {
 
   return (
     <>
-      <Page>{t("Главная")}</Page>
+      <Page>
+        {t("Главная")}
+      </Page>
     </>
   );
 });

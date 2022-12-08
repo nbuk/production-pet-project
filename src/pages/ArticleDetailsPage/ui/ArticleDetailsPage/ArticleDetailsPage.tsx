@@ -68,6 +68,7 @@ const ArticleDetailsPage = memo((props: PropsWithChildren<ArticleDetailsPageProp
           <Text
             className={styles.commentTitle}
             size={TextSize.L}
+            titleTag={"h3"}
             title={t("Рекомендуем")}
           />
           <ArticleList
@@ -80,6 +81,7 @@ const ArticleDetailsPage = memo((props: PropsWithChildren<ArticleDetailsPageProp
           <Text
             className={styles.commentTitle}
             size={TextSize.L}
+            titleTag={"h3"}
             title={t("Комментарии")}
           />
           <VStack gap={32} max>

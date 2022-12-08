@@ -1,4 +1,4 @@
-import { FC, PropsWithChildren } from "react";
+import { DetailedHTMLProps, FC, HTMLAttributes, PropsWithChildren } from "react";
 import { classNames, Mods } from "shared/lib/classNames";
 import styles from "./Flex.module.scss";
 
@@ -7,7 +7,9 @@ export type FlexAlign = "start" | "center" | "end";
 export type FlexDirection = "row" | "column";
 export type FlexGap = 4 | 8 | 16 | 32;
 
-export interface FlexProps {
+type DivProps = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
+
+export interface FlexProps extends DivProps {
   className?: string;
   justify?: FlexJustify;
   align?: FlexAlign;
@@ -15,6 +17,7 @@ export interface FlexProps {
   gap?: FlexGap;
   max?: boolean;
   wrap?: boolean;
+  tag?: keyof HTMLElementTagNameMap;
 }
 
 const justifyClasses: Record<FlexJustify, string> = {
@@ -52,6 +55,7 @@ export const Flex: FC<PropsWithChildren<FlexProps>> = (props) => {
     gap = 8,
     max,
     wrap,
+    tag = "div",
   } = props;
 
   const classes = [
@@ -67,9 +71,11 @@ export const Flex: FC<PropsWithChildren<FlexProps>> = (props) => {
     [styles.wrap]: wrap,
   };
 
+  const Tag = tag;
+
   return (
-    <div className={classNames(styles.Flex, mods, classes)}>
+    <Tag className={classNames(styles.Flex, mods, classes)}>
       {children}
-    </div>
+    </Tag>
   );
 };

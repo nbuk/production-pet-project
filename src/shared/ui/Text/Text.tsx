@@ -19,10 +19,15 @@ export const enum TextSize {
   L = "size_l",
 }
 
+type TitleTagType = "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p" | "span";
+type TextTagType = "p" | "span";
+
 interface TextProps {
   className?: string;
   title?: string;
   text?: string;
+  titleTag?: TitleTagType;
+  textTag?: TextTagType;
   align?: TextAlign;
   size?: TextSize;
   theme?: TextTheme;
@@ -36,12 +41,17 @@ export const Text = memo((props: TextProps) => {
     size = TextSize.M,
     text,
     theme = TextTheme.PRIMARY,
+    titleTag = "h1",
+    textTag = "p",
   } = props;
+
+  const TitleTag = titleTag;
+  const TextTag = textTag;
 
   return (
     <div className={classNames(styles.Text, {}, [className, styles[theme], styles[align], styles[size]])}>
-      {title && <p className={styles.title}>{title}</p>}
-      {text && <p className={styles.text}>{text}</p>}
+      {title && <TitleTag className={styles.title}>{title}</TitleTag>}
+      {text && <TextTag className={styles.text}>{text}</TextTag>}
     </div>
   );
 });
