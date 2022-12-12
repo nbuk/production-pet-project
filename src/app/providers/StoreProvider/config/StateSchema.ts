@@ -8,10 +8,12 @@ import { ArticleDetailsPageSchema } from "pages/ArticleDetailsPage";
 import { AddCommentFormSchema } from "features/addCommentForm";
 import { ArticlePageSchema } from "pages/ArticlesPage";
 import { ScrollPositionSchema } from "widgets/Page";
+import { rtkApi } from "shared/api/rtkApi";
 
 export interface StateSchema {
   user: UserSchema;
   scrollPosition: ScrollPositionSchema;
+  [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>;
 
   // Async reducers
   loginForm?: LoginSchema;

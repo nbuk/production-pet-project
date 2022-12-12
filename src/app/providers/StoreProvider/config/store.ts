@@ -5,12 +5,14 @@ import { createReducerManager } from "./reducerManager";
 import { $api } from "shared/api/api";
 import { CombinedState, Reducer } from "redux";
 import { scrollPositionReducer } from "widgets/Page";
+import { rtkApi } from "shared/api/rtkApi";
 
 export function createReduxStore(initialState?: StateSchema, asyncReducers?: ReducersMapObject<StateSchema>) {
   const rootReducers: ReducersMapObject<StateSchema> = {
     ...asyncReducers,
     user: userReducer,
     scrollPosition: scrollPositionReducer,
+    [rtkApi.reducerPath]: rtkApi.reducer,
   };
 
   const reducerManager = createReducerManager(rootReducers);
@@ -25,7 +27,7 @@ export function createReduxStore(initialState?: StateSchema, asyncReducers?: Red
           api: $api,
         },
       },
-    }),
+    }).concat(rtkApi.middleware),
   });
 
   // @ts-expect-error
