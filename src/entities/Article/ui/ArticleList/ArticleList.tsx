@@ -11,7 +11,7 @@ import { HStack, VStack } from "shared/ui/Stack";
 
 interface ArticleListProps {
   className?: string;
-  articles: Article[];
+  articles?: Article[];
   isLoading?: boolean;
   view?: ArticleView;
   target?: HTMLAttributeAnchorTarget;
@@ -37,7 +37,7 @@ export const ArticleList = memo((props: PropsWithChildren<ArticleListProps>) => 
     );
   };
 
-  if (!isLoading && !articles.length) {
+  if (!isLoading && (!articles || articles?.length)) {
     return (
       <div className={classNames(styles.ArticleList, {}, [styles[view], className])}>
         <Text size={TextSize.L} title={t("Статьи не найдены")} />
@@ -49,7 +49,7 @@ export const ArticleList = memo((props: PropsWithChildren<ArticleListProps>) => 
 
   return (
     <Wrapper gap={16} max wrap className={classNames("", {}, [className])}>
-       { articles.length > 0 && articles.map(renderArticle) }
+      {articles?.map(renderArticle)}
       { isLoading && getSkeletons(view) }
     </Wrapper>
   );
