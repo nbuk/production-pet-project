@@ -73,7 +73,12 @@ export const EditableProfileCard: FC<EditableProfileCardProps> = (props) => {
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
       <VStack gap={16} max>
         {validateErrors?.length && validateErrors.map((error, i) => (
-          <Text key={i} theme={TextTheme.ERROR} text={validateErrorTranslates[error]} />
+          <Text
+            key={i}
+            theme={TextTheme.ERROR}
+            text={validateErrorTranslates[error]}
+            data-testid={"EditableProfileCard.Error"}
+          />
         ))}
         <HStack max className={styles.wrapper}>
           {canEdit && (
@@ -83,6 +88,7 @@ export const EditableProfileCard: FC<EditableProfileCardProps> = (props) => {
                   <Button
                     theme={ButtonTheme.OUTLINE}
                     onClick={handleEdit}
+                    data-testid={"EditableProfileCard.EditButton"}
                   >
                     {t("Редактировать")}
                   </Button>
@@ -93,12 +99,14 @@ export const EditableProfileCard: FC<EditableProfileCardProps> = (props) => {
                       className={styles.cancelBtn}
                       theme={ButtonTheme.OUTLINE_RED}
                       onClick={handleCancelEdit}
+                      data-testid={"EditableProfileCard.CancelButton"}
                     >
                       {t("Отменить")}
                     </Button>
                     <Button
                       theme={ButtonTheme.OUTLINE}
                       onClick={handleSave}
+                      data-testid={"EditableProfileCard.SaveButton"}
                     >
                       {t("Сохранить")}
                     </Button>

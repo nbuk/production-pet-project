@@ -100,6 +100,7 @@ export const ProfileCard: FC<PropsWithChildren<ProfileCardProps>> = (props) => {
         placeholder={t("Ваша имя")}
         className={styles.input}
         onChange={handleFirstnameChange}
+        data-testid={"ProfileCard.firstname"}
       />
       <Input
         readonly={readonly}
@@ -107,6 +108,7 @@ export const ProfileCard: FC<PropsWithChildren<ProfileCardProps>> = (props) => {
         placeholder={t("Ваша фамилия")}
         className={styles.input}
         onChange={handleLastnameChange}
+        data-testid={"ProfileCard.lastname"}
       />
       <Input
         readonly={readonly}
