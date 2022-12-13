@@ -11,7 +11,6 @@ import {
   getArticlesPageView,
 } from "../../model/selectors/articlesPageSelectors";
 import { ArticleSortField, ArticleType, ArticleView } from "entities/Article";
-import { articlesPageActions } from "../../model/slices/articlePageSlice";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { ArticlesSearch } from "features/searchArticle";
 import { SortOrder } from "shared/types";
@@ -19,6 +18,7 @@ import { fetchArticleList } from "../../model/services/fetchArticleList/fetchArt
 import { useDebounce } from "shared/lib/hooks/useDebounce";
 import { ArticleTypeTabs } from "features/changeArticleType";
 import { HStack, VStack } from "shared/ui/Stack";
+import { articlesPageActions } from "../../model/slices/articlePageSlice";
 
 interface ArticlesPageFiltersProps {
   className?: string;

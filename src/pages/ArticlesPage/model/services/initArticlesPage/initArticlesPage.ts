@@ -19,6 +19,8 @@ export const initArticlesPage = createAsyncThunk<void, URLSearchParams, ThunkCon
     const sort = searchParams.get("sort") as ArticleSortField;
     const search = searchParams.get("search");
 
+    dispatch(articlesPageActions.initState());
+
     if (order) {
       dispatch(articlesPageActions.setOrder(order));
     }
@@ -31,6 +33,5 @@ export const initArticlesPage = createAsyncThunk<void, URLSearchParams, ThunkCon
       dispatch(articlesPageActions.setSearch(search));
     }
 
-    dispatch(articlesPageActions.initState());
     dispatch(fetchArticleList({}));
   });
