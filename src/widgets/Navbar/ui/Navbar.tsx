@@ -14,7 +14,7 @@ import { AppLink } from "shared/ui/AppLink";
 import { RoutePath } from "shared/config/routeConfig/routeConfig";
 import { AppLinkTheme } from "shared/ui/AppLink/AppLink";
 import { TextTheme } from "shared/ui/Text/Text";
-import { Dropdown } from "shared/ui/Dropdown/Dropdown";
+import { Dropdown } from "shared/ui/Dropdown";
 import { Avatar } from "shared/ui/Avatar";
 
 interface NavbarProps {
