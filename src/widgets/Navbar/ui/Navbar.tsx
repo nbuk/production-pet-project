@@ -7,7 +7,7 @@ import { Button } from "shared/ui/Button";
 import { ButtonTheme } from "shared/ui/Button/Button";
 import { LoginModal } from "features/authByUsername";
 import { useSelector } from "react-redux";
-import { getUserAuthData, userActions } from "entities/User";
+import { getUserAuthData, isUserAdmin, isUserManager, userActions } from "entities/User";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { Text } from "shared/ui/Text";
 import { AppLink } from "shared/ui/AppLink";
@@ -27,6 +27,14 @@ export const Navbar = memo((props: NavbarProps) => {
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
   const dispatch = useAppDispatch();
   const authData = useSelector(getUserAuthData);
+  const isAdmin = useSelector(isUserAdmin);
+  const isManager = useSelector(isUserManager);
+
+  const isAdminPanelAvailable = isAdmin || isManager;
+
+  console.log(isAdmin);
+
+  console.log(isAdminPanelAvailable);
 
   const handleModalClose = useCallback(() => {
     setIsAuthModalOpen(false);
@@ -51,7 +59,12 @@ export const Navbar = memo((props: NavbarProps) => {
           className={styles.dropdown}
           direction={"bottom-left"}
           items={[
-
+            ...(isAdminPanelAvailable
+              ? [{
+                  content: t("Админка"),
+                  href: RoutePath.admin_panel,
+                }]
+              : []),
             {
               content: t("Профиль"),
               href: RoutePath.profile + authData.id,
