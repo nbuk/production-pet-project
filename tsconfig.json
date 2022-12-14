@@ -27,7 +27,7 @@
     "./webpack.config.ts",
     "src",
     "./config",
-    "./config/jest"
+    "./config/jest",
   ],
   "exclude": ["node_modules"]
 }
