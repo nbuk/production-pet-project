@@ -1,8 +1,9 @@
-import React, { FC, PropsWithChildren, useCallback, useEffect, useRef, useState } from "react";
+import { FC, PropsWithChildren, useCallback, useEffect, useRef, useState } from "react";
 import { classNames, Mods } from "shared/lib/classNames";
 import { Portal } from "shared/ui/Portal/Portal";
 import styles from "./Modal.module.scss";
 import { useTheme } from "app/providers/ThemeProvider";
+import { Overlay } from "shared/ui/Overlay";
 
 interface ModalProps {
   className?: string;
@@ -52,10 +53,6 @@ export const Modal: FC<PropsWithChildren<ModalProps>> = (props) => {
     }
   }, [handleClose]);
 
-  const handleContentClick = (e: React.MouseEvent) => {
-    e.stopPropagation();
-  };
-
   useEffect(() => {
     if (isOpen) {
       window.addEventListener("keydown", handleKeyDown);
@@ -79,10 +76,9 @@ export const Modal: FC<PropsWithChildren<ModalProps>> = (props) => {
   return (
     <Portal>
       <div className={classNames(styles.Modal, mods, [className, theme])}>
-        <div className={styles.overlay} onClick={handleClose}>
-          <div className={styles.content} onClick={handleContentClick}>
-            {children}
-          </div>
+        <Overlay onClick={handleClose} />
+        <div className={styles.content}>
+          {children}
         </div>
       </div>
     </Portal>
