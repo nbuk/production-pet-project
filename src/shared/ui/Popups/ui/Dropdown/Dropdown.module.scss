@@ -20,24 +20,7 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
-
-  &.top-left {
-    bottom: 100%;
-    right: 0;
-  }
-
-  &.top-right {
-    bottom: 100%;
-    left: 0;
-  }
-
-  &.bottom-left {
-    right: 0;
-  }
-
-  &.bottom-right {
-    left: 0;
-  }
+  padding: 5px;
 }
 
 .item {
@@ -48,8 +31,5 @@
   outline: none;
   color: var(--primary-color);
   cursor: pointer;
-}
-
-.active {
-  background: var(--inverted-primary-color);
+  border-radius: 10px;
 }

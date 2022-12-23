@@ -1,0 +1,53 @@
+.popup {
+  position: relative;
+}
+
+.top-left {
+  bottom: 100%;
+  right: 0;
+}
+
+.top-right {
+  bottom: 100%;
+  left: 0;
+}
+
+.bottom-left {
+  right: 0;
+}
+
+.bottom-right {
+  left: 0;
+}
+
+.trigger {
+  background: none;
+  outline: none;
+  margin: 0;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+}
+
+.selected {
+  background: var(--inverted-secondary-color);
+}
+
+.disabled {
+  opacity: 0.7;
+}
+
+.item {
+  padding: 10px 25px;
+  width: 100%;
+  border: none;
+  background: none;
+  outline: none;
+  color: var(--primary-color);
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.active {
+  background: var(--inverted-primary-color);
+}

@@ -1,0 +1,17 @@
+.label {
+  white-space: nowrap;
+  color: var(--secondary-color);
+}
+
+.options {
+  position: absolute;
+  background: var(--listbox-bg);
+  border-radius: 12px;
+  box-shadow: 4px 4px 8px var(--listbox-bg);
+  overflow: hidden;
+  z-index: 10;
+}
+
+.item {
+  padding: 10px 20px;
+}

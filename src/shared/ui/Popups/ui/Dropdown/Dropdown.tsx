@@ -4,6 +4,7 @@ import { FC, Fragment, ReactNode } from "react";
 import { classNames } from "shared/lib/classNames";
 import { DropdownDirection } from "shared/types/ui";
 import { AppLink } from "shared/ui/AppLink";
+import popupStyles from "../../styles/popup.module.scss";
 
 export interface DropDownItem {
   disabled?: boolean;
@@ -27,10 +28,10 @@ export const Dropdown: FC<DropdownProps> = (props) => {
     direction = "bottom-right",
   } = props;
 
-  const menuClasses = [styles[direction]];
+  const menuClasses = [popupStyles[direction]];
 
   return (
-    <Menu as={"div"} className={classNames(styles.Dropdown, {}, [className])}>
+    <Menu as={"div"} className={classNames(styles.Dropdown, {}, [className, popupStyles.popup])}>
       <Menu.Button
         className={styles.trigger}
       >
@@ -40,7 +41,7 @@ export const Dropdown: FC<DropdownProps> = (props) => {
         {items.map((item, i) => {
           const content = ({ active }: { active: boolean; }) => (
             <button
-              className={classNames(styles.item, { [styles.active]: active }, [])}
+              className={classNames(popupStyles.item, { [popupStyles.active]: active }, [])}
               onClick={item.onClick}
               disabled={item.disabled}
             >
@@ -50,7 +51,12 @@ export const Dropdown: FC<DropdownProps> = (props) => {
 
           if (item.href) {
             return (
-              <Menu.Item key={i} as={AppLink} to={item.href} disabled={item.disabled}>
+              <Menu.Item
+                key={i}
+                as={AppLink}
+                to={item.href}
+                disabled={item.disabled}
+              >
                 {content}
               </Menu.Item>
             );

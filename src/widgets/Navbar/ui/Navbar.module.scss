@@ -9,7 +9,7 @@
 }
 
 .links,
-.dropdown {
+.actions {
   margin-left: auto;
 }
 
@@ -20,4 +20,9 @@
 .appName {
   width: var(--sidebar-width);
   margin-left: 15px;
+  margin-right: 35px;
+}
+
+.createArticle {
+  min-width: 150px;
 }

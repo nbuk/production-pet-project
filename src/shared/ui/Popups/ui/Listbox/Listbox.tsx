@@ -1,6 +1,7 @@
 import { Fragment, ReactNode } from "react";
 import { Listbox as HListbox } from "@headlessui/react";
 import styles from "./Listbox.module.scss";
+import popupStyles from "../../styles/popup.module.scss";
 import { classNames, Mods } from "shared/lib/classNames";
 import { HStack } from "shared/ui/Stack";
 import { DropdownDirection } from "shared/types/ui";
@@ -36,7 +37,7 @@ export const Listbox = <T extends string>(props: ListboxProps<T>) => {
   } = props;
 
   const optionsClasses = [
-    styles[direction],
+    popupStyles[direction],
   ];
 
   return (
@@ -47,7 +48,7 @@ export const Listbox = <T extends string>(props: ListboxProps<T>) => {
         </span>
       )}
       <HListbox
-        className={classNames(styles.Listbox, {}, [className])}
+        className={classNames(styles.Listbox, {}, [className, popupStyles.popup])}
         as={"div"}
         value={value}
         disabled={readonly}
@@ -71,9 +72,9 @@ export const Listbox = <T extends string>(props: ListboxProps<T>) => {
             >
               {({ selected, active }) => {
                 const mods: Mods = {
-                  [styles.active]: active,
-                  [styles.selected]: selected,
-                  [styles.disabled]: item.disabled,
+                  [popupStyles.active]: active,
+                  [popupStyles.selected]: selected,
+                  [popupStyles.disabled]: item.disabled,
                 };
 
                 return (
