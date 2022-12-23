@@ -4,11 +4,13 @@ import { useTheme } from "app/providers/ThemeProvider";
 import styles from "./Drawer.module.scss";
 import { Portal } from "../Portal/Portal";
 import { Overlay } from "shared/ui/Overlay/Overlay";
+import { useModal } from "shared/lib/hooks/useModal";
 
 interface DrawerProps {
   className?: string;
   children: ReactNode;
-  isOpen?: boolean;
+  isOpen: boolean;
+  lazy?: boolean;
   onClose?: () => void;
 }
 
@@ -18,17 +20,28 @@ export const Drawer = memo((props: DrawerProps) => {
     children,
     onClose,
     isOpen,
+    lazy,
   } = props;
   const { theme } = useTheme();
+  const { isMounted, isOpening, isClosing, close } = useModal({
+    isOpen,
+    onClose,
+    animationDelay: 300,
+  });
 
   const mods: Mods = {
-    [styles.opened]: isOpen,
+    [styles.opened]: isOpening,
+    [styles.isClosing]: isClosing,
   };
+
+  if (lazy && !isMounted) {
+    return null;
+  }
 
   return (
     <Portal>
       <div className={classNames(styles.Drawer, mods, [className, theme, "app_drawer"])}>
-        <Overlay onClick={onClose} />
+        <Overlay onClick={close} />
         <div
           className={styles.content}
         >
