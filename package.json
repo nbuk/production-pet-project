@@ -98,7 +98,9 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.7.4",
+    "@react-spring/web": "^9.6.1",
     "@reduxjs/toolkit": "^1.8.6",
+    "@use-gesture/react": "^10.2.23",
     "axios": "0.26.1",
     "eslint-plugin-i18next": "^6.0.0-2",
     "i18next": "^21.9.2",

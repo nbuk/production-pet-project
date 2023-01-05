@@ -3,7 +3,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 interface UseModalProps {
   onClose?: () => void;
   isOpen: boolean;
-  animationDelay: number;
+  animationDelay?: number;
 }
 
 export const useModal = (props: UseModalProps) => {
@@ -33,12 +33,14 @@ export const useModal = (props: UseModalProps) => {
   const close = useCallback(() => {
     if (onClose) {
       setIsClosing(true);
-      timerRef.current = setTimeout(() => {
-        onClose();
-        setIsOpening(false);
-        setIsClosing(false);
-        setIsMounted(false);
-      }, animationDelay);
+      if (animationDelay) {
+        timerRef.current = setTimeout(() => {
+          onClose();
+          setIsOpening(false);
+          setIsClosing(false);
+          setIsMounted(false);
+        }, animationDelay);
+      }
     }
   }, [animationDelay, onClose]);
 
