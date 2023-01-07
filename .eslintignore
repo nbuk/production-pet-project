@@ -1,2 +1,3 @@
 json-server/**/*
 scripts/**/*
+vite.config.ts
