@@ -1,9 +1,9 @@
 import { memo, useCallback } from "react";
-import { classNames } from "shared/lib/classNames";
+import { classNames } from "@/shared/lib/classNames";
 import { useTranslation } from "react-i18next";
 import { Country } from "../../model/types/country";
-import { Listbox } from "shared/ui/Popups/ui/Listbox";
-import { ListboxItem } from "shared/ui/Popups/ui/Listbox/Listbox";
+import { Listbox } from "@/shared/ui/Popups/ui/Listbox";
+import { ListboxItem } from "@/shared/ui/Popups/ui/Listbox/Listbox";
 
 const options: Array<ListboxItem<Country>> = [
   { value: Country.Russia, content: Country.Russia },

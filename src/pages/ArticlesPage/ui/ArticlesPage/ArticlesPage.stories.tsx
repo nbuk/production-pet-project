@@ -1,10 +1,10 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 
 import ArticlesPage from "./ArticlesPage";
-import { StoreDecorator } from "shared/config/storybook/StoreDecorator";
-import articleImage from "entities/Article/ui/storybook/article-img.png";
-import avatarImage from "entities/Article/ui/storybook/avatar.png";
-import { Article, ArticleView } from "entities/Article";
+import { StoreDecorator } from "@/shared/config/storybook/StoreDecorator";
+import articleImage from "@/entities/Article/ui/storybook/article-img.png";
+import avatarImage from "@/entities/Article/ui/storybook/avatar.png";
+import { Article, ArticleView } from "@/entities/Article";
 
 const article = {
   id: "1",

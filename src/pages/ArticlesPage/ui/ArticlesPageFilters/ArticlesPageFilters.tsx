@@ -1,7 +1,7 @@
 import { FC, PropsWithChildren, useCallback } from "react";
-import { classNames } from "shared/lib/classNames";
-import { ArticleViewSelector } from "features/changeArticleView";
-import { ArticlesSort } from "features/sortArticle";
+import { classNames } from "@/shared/lib/classNames";
+import { ArticleViewSelector } from "@/features/changeArticleView";
+import { ArticlesSort } from "@/features/sortArticle";
 import { useSelector } from "react-redux";
 import {
   getArticlesPageOrder,
@@ -10,14 +10,14 @@ import {
   getArticlesPageType,
   getArticlesPageView,
 } from "../../model/selectors/articlesPageSelectors";
-import { ArticleSortField, ArticleType, ArticleView } from "entities/Article";
-import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
-import { ArticlesSearch } from "features/searchArticle";
-import { SortOrder } from "shared/types";
+import { ArticleSortField, ArticleType, ArticleView } from "@/entities/Article";
+import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
+import { ArticlesSearch } from "@/features/searchArticle";
+import { SortOrder } from "@/shared/types";
 import { fetchArticleList } from "../../model/services/fetchArticleList/fetchArticleList";
-import { useDebounce } from "shared/lib/hooks/useDebounce";
-import { ArticleTypeTabs } from "features/changeArticleType";
-import { HStack, VStack } from "shared/ui/Stack";
+import { useDebounce } from "@/shared/lib/hooks/useDebounce";
+import { ArticleTypeTabs } from "@/features/changeArticleType";
+import { HStack, VStack } from "@/shared/ui/Stack";
 import { articlesPageActions } from "../../model/slices/articlePageSlice";
 
 interface ArticlesPageFiltersProps {

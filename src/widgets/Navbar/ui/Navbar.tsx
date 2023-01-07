@@ -1,20 +1,20 @@
 import { memo, useCallback, useState } from "react";
-import { classNames } from "shared/lib/classNames/classNames";
+import { classNames } from "@/shared/lib/classNames/classNames";
 
 import styles from "./Navbar.module.scss";
 import { useTranslation } from "react-i18next";
-import { Button, ButtonTheme } from "shared/ui/Button";
-import { LoginModal } from "features/authByUsername";
+import { Button, ButtonTheme } from "@/shared/ui/Button";
+import { LoginModal } from "@/features/authByUsername";
 import { useSelector } from "react-redux";
-import { getUserAuthData } from "entities/User";
-import { Text } from "shared/ui/Text";
-import { AppLink } from "shared/ui/AppLink";
-import { RoutePath } from "shared/config/routeConfig/routeConfig";
-import { AppLinkTheme } from "shared/ui/AppLink/AppLink";
-import { TextTheme } from "shared/ui/Text/Text";
-import { HStack } from "shared/ui/Stack";
-import { NotificationButton } from "features/notificationButton";
-import { AvatarDropdown } from "features/avatarDropdown";
+import { getUserAuthData } from "@/entities/User";
+import { Text } from "@/shared/ui/Text";
+import { AppLink } from "@/shared/ui/AppLink";
+import { RoutePath } from "@/shared/config/routeConfig/routeConfig";
+import { AppLinkTheme } from "@/shared/ui/AppLink/AppLink";
+import { TextTheme } from "@/shared/ui/Text/Text";
+import { HStack } from "@/shared/ui/Stack";
+import { NotificationButton } from "@/features/notificationButton";
+import { AvatarDropdown } from "@/features/avatarDropdown";
 
 interface NavbarProps {
   className?: string;

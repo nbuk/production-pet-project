@@ -1,8 +1,8 @@
 import { memo, ReactNode, useCallback } from "react";
-import { classNames } from "shared/lib/classNames";
+import { classNames } from "@/shared/lib/classNames";
 import styles from "./Tabs.module.scss";
-import { Card, CardTheme } from "shared/ui/Card";
-import { HStack } from "shared/ui/Stack";
+import { Card, CardTheme } from "@/shared/ui/Card";
+import { HStack } from "@/shared/ui/Stack";
 
 export interface TabItem<T extends string> {
   value: T;

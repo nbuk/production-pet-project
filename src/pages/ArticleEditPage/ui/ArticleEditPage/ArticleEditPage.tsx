@@ -1,7 +1,7 @@
 import { memo, PropsWithChildren } from "react";
-import { classNames } from "shared/lib/classNames";
+import { classNames } from "@/shared/lib/classNames";
 import { useTranslation } from "react-i18next";
-import { Page } from "widgets/Page";
+import { Page } from "@/widgets/Page";
 import { useParams } from "react-router-dom";
 
 interface ArticleEditPageProps {

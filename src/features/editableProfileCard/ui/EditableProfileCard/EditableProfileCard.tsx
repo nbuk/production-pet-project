@@ -1,24 +1,24 @@
 import { FC, useCallback } from "react";
-import { Profile, ProfileCard } from "entities/Profile";
+import { Profile, ProfileCard } from "@/entities/Profile";
 import { useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 import { getProfileIsLoading } from "../../model/selectors/getProfileIsLoading/getProfileIsLoading";
-import { DynamicModuleLoader, ReducerList } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
+import { DynamicModuleLoader, ReducerList } from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 import { profileActions, profileReducer } from "../../model/slice/profileSlice";
-import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
+import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { fetchProfileData } from "../../model/services/fetchProfileData/fetchProfileData";
-import { Button, ButtonTheme } from "shared/ui/Button/Button";
+import { Button, ButtonTheme } from "@/shared/ui/Button/Button";
 import { getProfileReadonly } from "../../model/selectors/getProfileReadonly/getProfileReadonly";
 import { getProfileForm } from "../../model/selectors/getProfileForm/getProfileForm";
 import styles from "./EditableProfileCard.module.scss";
 import { updateProfileData } from "../../model/services/updateProfileData/updateProfileData";
 import { getProfileValidateErrors } from "../../model/selectors/getProfileValidateErrors/getProfileValidateErrors";
-import { Text, TextTheme } from "shared/ui/Text/Text";
+import { Text, TextTheme } from "@/shared/ui/Text/Text";
 import { ValidateProfileError } from "../../model/types/profile";
 import { getProfileError } from "../../model/selectors/getProfileError/getProfileError";
-import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useInitialEffect";
-import { getUserAuthData } from "entities/User";
-import { HStack, VStack } from "shared/ui/Stack";
+import { useInitialEffect } from "@/shared/lib/hooks/useInitialEffect/useInitialEffect";
+import { getUserAuthData } from "@/entities/User";
+import { HStack, VStack } from "@/shared/ui/Stack";
 
 const reducers: ReducerList = {
   profile: profileReducer,

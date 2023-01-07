@@ -1,5 +1,5 @@
 import { FC, PropsWithChildren, useMemo } from "react";
-import { classNames } from "shared/lib/classNames";
+import { classNames } from "@/shared/lib/classNames";
 import styles from "./Avatar.module.scss";
 
 interface AvatarProps {

@@ -1,11 +1,11 @@
 import { memo, PropsWithChildren } from "react";
-import { classNames } from "shared/lib/classNames";
+import { classNames } from "@/shared/lib/classNames";
 import styles from "./ArticleViewSelector.module.scss";
-import { ArticleView } from "entities/Article";
-import ListIcon from "shared/assets/icons/list.svg";
-import TiledIcon from "shared/assets/icons/tiled.svg";
-import { Button, ButtonTheme } from "shared/ui/Button";
-import { Icon } from "shared/ui/Icon";
+import { ArticleView } from "@/entities/Article";
+import ListIcon from "@/shared/assets/icons/list.svg";
+import TiledIcon from "@/shared/assets/icons/tiled.svg";
+import { Button, ButtonTheme } from "@/shared/ui/Button";
+import { Icon } from "@/shared/ui/Icon";
 
 interface ArticleViewSelectorProps {
   className?: string;

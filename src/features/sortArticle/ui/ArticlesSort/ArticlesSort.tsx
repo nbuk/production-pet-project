@@ -1,10 +1,10 @@
 import { memo, PropsWithChildren, useMemo } from "react";
-import { classNames } from "shared/lib/classNames";
+import { classNames } from "@/shared/lib/classNames";
 import { useTranslation } from "react-i18next";
-import { Select, SelectOption } from "shared/ui/Select";
-import { ArticleSortField } from "entities/Article/model/types/article";
-import { SortOrder } from "shared/types";
-import { HStack } from "shared/ui/Stack";
+import { Select, SelectOption } from "@/shared/ui/Select";
+import { ArticleSortField } from "@/entities/Article/model/types/article";
+import { SortOrder } from "@/shared/types";
+import { HStack } from "@/shared/ui/Stack";
 
 interface ArticlesPageFiltersProps {
   className?: string;

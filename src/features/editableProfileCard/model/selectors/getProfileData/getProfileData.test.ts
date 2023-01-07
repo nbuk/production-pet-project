@@ -1,6 +1,6 @@
-import { StateSchema } from "app/providers/StoreProvider";
+import { StateSchema } from "@/app/providers/StoreProvider";
 import { getProfileData } from "./getProfileData";
-import { Country } from "entities/Country";
+import { Country } from "@/entities/Country";
 
 describe("getProfileData", () => {
   test("should return data", () => {

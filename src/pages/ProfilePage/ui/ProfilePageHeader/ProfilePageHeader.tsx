@@ -1,8 +1,8 @@
 import { FC, PropsWithChildren } from "react";
-import { classNames } from "shared/lib/classNames";
+import { classNames } from "@/shared/lib/classNames";
 import styles from "./ProfilePageHeader.module.scss";
 import { useTranslation } from "react-i18next";
-import { Text } from "shared/ui/Text/Text";
+import { Text } from "@/shared/ui/Text/Text";
 
 interface ProfilePageHeaderProps {
   className?: string;

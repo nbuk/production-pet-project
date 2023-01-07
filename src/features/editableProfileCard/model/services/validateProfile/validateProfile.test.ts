@@ -1,7 +1,7 @@
 import { validateProfile } from "./validateProfile";
-import { Country } from "entities/Country";
+import { Country } from "@/entities/Country";
 import { ValidateProfileError } from "../../types/profile";
-import { Profile } from "entities/Profile";
+import { Profile } from "@/entities/Profile";
 
 const data = {
   id: "1",

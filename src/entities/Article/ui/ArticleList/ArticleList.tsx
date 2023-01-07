@@ -1,13 +1,13 @@
 import { HTMLAttributeAnchorTarget, memo, PropsWithChildren } from "react";
-import { classNames } from "shared/lib/classNames";
+import { classNames } from "@/shared/lib/classNames";
 import styles from "./ArticleList.module.scss";
 import { Article, ArticleView } from "../../model/types/article";
 import { ArticleListItem } from "../ArticleListItem/ArticleListItem";
 import { ArticleListItemSkeleton } from "../ArticleListItem/ArticleListItemSkeleton";
 import { useTranslation } from "react-i18next";
-import { HStack, VStack } from "shared/ui/Stack";
-import { Text } from "shared/ui/Text";
-import { TextSize } from "shared/ui/Text/Text";
+import { HStack, VStack } from "@/shared/ui/Stack";
+import { Text } from "@/shared/ui/Text";
+import { TextSize } from "@/shared/ui/Text/Text";
 
 interface ArticleListProps {
   className?: string;

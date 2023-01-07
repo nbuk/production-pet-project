@@ -1,10 +1,10 @@
 import { memo, PropsWithChildren } from "react";
-import { classNames } from "shared/lib/classNames";
+import { classNames } from "@/shared/lib/classNames";
 import styles from "./ArticlesSearch.module.scss";
 import { useTranslation } from "react-i18next";
-import { Input } from "shared/ui/Input";
-import { Card } from "shared/ui/Card";
-import { HStack } from "shared/ui/Stack";
+import { Input } from "@/shared/ui/Input";
+import { Card } from "@/shared/ui/Card";
+import { HStack } from "@/shared/ui/Stack";
 
 interface ArticlesSearchProps {
   className?: string;

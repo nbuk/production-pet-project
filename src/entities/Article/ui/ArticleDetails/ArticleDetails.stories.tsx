@@ -1,10 +1,10 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 
 import { ArticleDetails } from "./ArticleDetails";
-import { StoreDecorator } from "shared/config/storybook/StoreDecorator";
+import { StoreDecorator } from "@/shared/config/storybook/StoreDecorator";
 import { Article, ArticleBlockType, ArticleType } from "../../model/types/article";
-import { ThemeDecorator } from "shared/config/storybook/ThemeDecorator";
-import { Theme } from "app/providers/ThemeProvider";
+import { ThemeDecorator } from "@/shared/config/storybook/ThemeDecorator";
+import { Theme } from "@/app/providers/ThemeProvider";
 
 const data: Article = {
   id: "1",

@@ -1,8 +1,8 @@
 import { FC, PropsWithChildren } from "react";
-import { classNames } from "shared/lib/classNames";
+import { classNames } from "@/shared/lib/classNames";
 import styles from "./PageError.module.scss";
 import { useTranslation } from "react-i18next";
-import { Button } from "shared/ui/Button";
+import { Button } from "@/shared/ui/Button";
 
 interface PageErrorProps {
   className?: string;

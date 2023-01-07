@@ -1,10 +1,10 @@
 import { memo, PropsWithChildren } from "react";
-import { classNames } from "shared/lib/classNames";
+import { classNames } from "@/shared/lib/classNames";
 import styles from "./ArticleListItem.module.scss";
 import { ArticleView } from "../../model/types/article";
-import { Card } from "shared/ui/Card";
-import { Skeleton } from "shared/ui/Skeleton";
-import { VStack } from "shared/ui/Stack";
+import { Card } from "@/shared/ui/Card";
+import { Skeleton } from "@/shared/ui/Skeleton";
+import { VStack } from "@/shared/ui/Stack";
 
 interface ArticleListItemSkeletonProps {
   className?: string;
