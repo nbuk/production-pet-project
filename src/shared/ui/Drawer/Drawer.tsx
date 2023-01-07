@@ -4,7 +4,7 @@ import { useTheme } from "@/app/providers/ThemeProvider";
 import styles from "./Drawer.module.scss";
 import { Portal } from "../Portal/Portal";
 import { Overlay } from "@/shared/ui/Overlay/Overlay";
-import { useAnimationLibs } from "@/shared/lib/components/AnimationProvider";
+import { AnimationProvider, useAnimationLibs } from "@/shared/lib/components/AnimationProvider";
 
 interface DrawerProps {
   className?: string;
@@ -32,7 +32,7 @@ const DrawerContent = memo((props: DrawerProps) => {
 
   const handleClose = useCallback((velocity = 0) => {
     api.start({ y: height, immediate: false, config: { ...Spring.config.stiff, velocity }, onResolve: onClose });
-  }, [api, onClose]);
+  }, [Spring.config.stiff, api, onClose]);
 
   useEffect(() => {
     if (isOpen) {
@@ -79,10 +79,20 @@ const DrawerContent = memo((props: DrawerProps) => {
   );
 });
 
-export const Drawer: FC<DrawerProps> = (props) => {
+const DrawerAsync: FC<DrawerProps> = (props) => {
   const { isLoaded } = useAnimationLibs();
 
   if (!isLoaded) return null;
 
   return <DrawerContent {...props} >{props.children}</DrawerContent>;
+};
+
+export const Drawer: FC<DrawerProps> = (props) => {
+  return (
+    <AnimationProvider>
+      <DrawerAsync {...props}>
+        {props.children}
+      </DrawerAsync>
+    </AnimationProvider>
+  );
 };
