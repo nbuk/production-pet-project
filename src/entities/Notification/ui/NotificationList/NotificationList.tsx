@@ -1,6 +1,5 @@
 import { memo, PropsWithChildren } from "react";
 import { classNames } from "@/shared/lib/classNames";
-import styles from "./NotificationList.module.scss";
 import { useNotifications } from "../../api/notificationApi";
 import { VStack } from "@/shared/ui/Stack";
 import { NotificationItem } from "../NotificationItem/NotificationItem";
@@ -19,7 +18,7 @@ export const NotificationList = memo((props: PropsWithChildren<NotificationListP
   if (isLoading) {
     return (
       <VStack
-        className={classNames(styles.NotificationList, {}, [className])}
+        className={classNames("", {}, [className])}
         gap={16}
       >
         <Skeleton width={"100%"} borderRadius={"8px"} height={"90px"} />
@@ -31,7 +30,7 @@ export const NotificationList = memo((props: PropsWithChildren<NotificationListP
 
   return (
     <VStack
-      className={classNames(styles.NotificationList, {}, [className])}
+      className={classNames("", {}, [className])}
       gap={16}
     >
       {notifications?.map((item) => (

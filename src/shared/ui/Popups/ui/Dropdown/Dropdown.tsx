@@ -41,6 +41,7 @@ export const Dropdown: FC<DropdownProps> = (props) => {
         {items.map((item, i) => {
           const content = ({ active }: { active: boolean; }) => (
             <button
+              key={`dropdown_key_${i}`}
               className={classNames(popupStyles.item, { [popupStyles.active]: active }, [])}
               onClick={item.onClick}
               disabled={item.disabled}
@@ -52,7 +53,7 @@ export const Dropdown: FC<DropdownProps> = (props) => {
           if (item.href) {
             return (
               <Menu.Item
-                key={i}
+                key={`dropdown_key_${i}`}
                 as={AppLink}
                 to={item.href}
                 disabled={item.disabled}
